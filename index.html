@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanish Singh Rajpal | Quantum Information Systems Research</title>
+  <meta name="description" content="Tanish Singh Rajpal is a Carnegie Mellon graduate student researching reinforcement learning for quantum networks, quantum information systems, and post-quantum security.">
+  <meta name="author" content="Tanish Singh Rajpal">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#121a2c">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tanish Singh Rajpal | Quantum Information Systems Research">
+  <meta property="og:description" content="Reinforcement learning and algorithmic methods for quantum networks, quantum computing, and secure systems.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tanish Singh Rajpal | Research">
+  <meta name="twitter:description" content="Reinforcement learning for quantum information systems.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121a2c'/%3E%3Ccircle cx='20' cy='32' r='6' fill='%23f2f0ea'/%3E%3Ccircle cx='44' cy='19' r='6' fill='%232f756d'/%3E%3Ccircle cx='44' cy='45' r='6' fill='%232f756d'/%3E%3Cpath d='M26 30 38 22M26 34l12 8M44 25v14' stroke='%23f2f0ea' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f2f0ea;
+      --paper-raised: #faf9f5;
+      --paper-dim: #e8e5dc;
+      --ink: #171a1f;
+      --ink-soft: #4a4f58;
+      --navy: #1b2740;
+      --navy-deep: #121a2c;
+      --teal: #2f756d;
+      --teal-soft: #dce9e6;
+      --line: #d3cfc3;
+      --rule: #c8c3b5;
+      --rail: 220px;
+      --radius: 10px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 19px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+      background-image: radial-gradient(var(--line) 1px, transparent 1.4px);
+      background-size: 34px 34px;
+      opacity: 0.5;
+      mask-image: linear-gradient(to bottom, #000, #000 62%, transparent 100%);
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { color: var(--navy-deep); }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      padding: 8px 12px;
+      background: var(--navy-deep);
+      color: #fff;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 14px;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    h1, h2, h3, .sans {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      color: var(--navy-deep);
+      letter-spacing: -0.015em;
+    }
+
+    p { max-width: 72ch; margin: 0 0 20px; }
+
+    .shell {
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      width: min(1240px, 100%);
+      margin: 0 auto;
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      display: flex;
+      height: 100vh;
+      padding: 42px 20px 34px 36px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--navy-deep);
+    }
+
+    .brand span {
+      display: block;
+      margin-top: 5px;
+      color: var(--ink-soft);
+      font-size: 12.5px;
+      font-weight: 400;
+    }
+
+    .menu-button { display: none; }
+
+    .nav-list {
+      display: grid;
+      gap: 3px;
+      margin: 32px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 0 7px 12px;
+      border-left: 2px solid transparent;
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 13.5px;
+      text-decoration: none;
+      transition: color 160ms ease, border-color 160ms ease;
+    }
+
+    .nav-link::before {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--line);
+      content: "";
+    }
+
+    .nav-link:hover,
+    .nav-link.active { color: var(--navy-deep); }
+    .nav-link.active { border-left-color: var(--teal); }
+    .nav-link.active::before { background: var(--teal); }
+
+    .rail-foot {
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    main {
+      min-width: 0;
+      padding: 0 40px 40px 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr);
+      gap: 46px;
+      align-items: center;
+      min-height: 610px;
+      padding: 74px 0 56px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .eyebrow,
+    .section-label,
+    .kicker,
+    .status,
+    .meta,
+    .button,
+    .metric-label,
+    .note {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 13ch;
+      margin: 0 0 20px;
+      font-size: clamp(40px, 5vw, 62px);
+      line-height: 1.02;
+    }
+
+    .tagline {
+      max-width: 54ch;
+      margin-bottom: 28px;
+      color: var(--ink-soft);
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 10px 15px;
+      border: 1px solid var(--navy-deep);
+      border-radius: 5px;
+      color: var(--navy-deep);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      background: var(--navy-deep);
+      color: #fff;
+    }
+
+    .button:hover {
+      background: var(--teal-soft);
+      color: var(--navy-deep);
+    }
+
+    .button.primary:hover { background: var(--navy); color: #fff; }
+
+    .research-map {
+      padding: 22px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--paper-raised) 86%, transparent);
+      box-shadow: 0 18px 44px rgba(18, 26, 44, 0.06);
+    }
+
+    .map-heading {
+      margin: 0 0 14px;
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .research-graph {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .graph-edge {
+      fill: none;
+      stroke: var(--rule);
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .graph-flow {
+      fill: none;
+      stroke: var(--teal);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 3 14;
+      vector-effect: non-scaling-stroke;
+      animation: graph-flow var(--duration, 2.8s) linear infinite;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes graph-flow {
+      to { stroke-dashoffset: -34; }
+    }
+
+    .graph-node { cursor: pointer; }
+
+    .graph-node rect {
+      fill: var(--paper);
+      stroke: var(--line);
+      stroke-width: 1.4;
+      transition: fill 160ms ease, stroke 160ms ease, stroke-width 160ms ease;
+    }
+
+    .graph-node text {
+      fill: var(--navy-deep);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      pointer-events: none;
+    }
+
+    .graph-node circle {
+      fill: var(--paper-raised);
+      stroke: var(--teal);
+      stroke-width: 2;
+      pointer-events: none;
+    }
+
+    .graph-node.core rect {
+      fill: var(--navy-deep);
+      stroke: var(--navy-deep);
+    }
+
+    .graph-node.core text { fill: #fff; font-weight: 600; }
+    .graph-node.core circle { fill: var(--teal); stroke: #fff; }
+
+    .graph-node.future rect {
+      fill: var(--teal-soft);
+      stroke: var(--teal);
+    }
+
+    .graph-node:hover rect,
+    .graph-node[aria-expanded="true"] rect,
+    .graph-node:focus-visible rect {
+      fill: var(--teal-soft);
+      stroke: var(--teal);
+      stroke-width: 2.5;
+    }
+
+    .graph-node.core:hover rect,
+    .graph-node.core[aria-expanded="true"] rect,
+    .graph-node.core:focus-visible rect { fill: var(--teal); }
+
+    .graph-node:focus { outline: none; }
+
+    .graph-detail {
+      margin-top: 4px;
+      padding: 14px 15px;
+      border-left: 3px solid var(--teal);
+      background: var(--paper-dim);
+      font-size: 15.5px;
+    }
+
+    .graph-detail strong { display: block; margin-bottom: 4px; font-family: "Space Grotesk", system-ui, sans-serif; font-size: 13px; }
+    .graph-detail p { margin: 0; }
+
+    section.content-section {
+      margin: 0 0 96px;
+      scroll-margin-top: 28px;
+    }
+
+    .content-section:first-of-type { padding-top: 68px; }
+
+    .section-label {
+      margin: 0 0 36px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--teal);
+      font-size: clamp(25px, 2.7vw, 32px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    .content-section > p,
+    .entry > p { font-size: 19px; line-height: 1.68; }
+
+    .lede { max-width: 66ch; font-size: 24px !important; line-height: 1.55 !important; }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .fact {
+      padding: 16px;
+      border-top: 2px solid var(--navy);
+      background: rgba(250, 249, 245, 0.65);
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 14px;
+      color: var(--navy-deep);
+    }
+
+    .fact span { color: var(--ink-soft); font-size: 15px; }
+
+    .entry { margin-bottom: 68px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 5px;
+    }
+
+    .entry h3 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.28;
+    }
+
+    .meta {
+      flex: none;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      white-space: nowrap;
+    }
+
+    .kicker {
+      margin: 0 0 22px;
+      color: var(--ink-soft);
+      font-size: 15.5px;
+      line-height: 1.55;
+      font-style: normal;
+    }
+
+    .status {
+      display: inline-flex;
+      margin-left: 8px;
+      padding: 2px 7px;
+      border: 1px solid var(--teal);
+      border-radius: 999px;
+      color: var(--teal);
+      font-size: 11.5px;
+      font-weight: 600;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 28px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .metric {
+      padding: 20px 16px 20px 0;
+      border-right: 1px solid var(--rule);
+    }
+
+    .metric:not(:first-child) { padding-left: 16px; }
+    .metric:last-child { border-right: 0; }
+
+    .metric-value {
+      display: block;
+      color: var(--navy-deep);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .metric-label { color: var(--ink-soft); font-size: 13px; line-height: 1.42; }
+
+    .note {
+      padding: 14px 17px;
+      border-left: 3px solid var(--teal);
+      background: var(--teal-soft);
+      color: var(--navy-deep);
+      font-size: 15px !important;
+      line-height: 1.55 !important;
+    }
+
+    .detail {
+      max-width: 70ch;
+      margin: 8px 0 24px;
+      padding-left: 24px;
+      font-size: 18px;
+    }
+
+    .detail li { margin-bottom: 10px; padding-left: 4px; }
+
+    .publication {
+      margin-bottom: 42px;
+      padding: 2px 0 2px 22px;
+      border-left: 2px solid var(--navy);
+    }
+
+    .publication:last-child { margin-bottom: 0; }
+    .publication p { margin-bottom: 13px; font-size: 18.5px; line-height: 1.62; }
+    .citation { color: var(--navy-deep); }
+    .venue { font-style: italic; }
+    .pub-link { font-family: "Space Grotesk", system-ui, sans-serif; font-size: 14px; }
+
+    .subheading {
+      margin: 42px 0 22px;
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 14.5px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .row:last-child { border-bottom: 0; }
+    .row h3 { margin: 0 0 5px; font-size: 23px; line-height: 1.32; }
+    .row .org { color: var(--ink-soft); font-size: 17px; font-style: italic; }
+    .row p { margin: 14px 0 0; font-size: 18.5px; line-height: 1.64; }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      padding: 26px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper-raised);
+    }
+
+    .contact-card h3 { margin: 0 0 8px; font-size: 22px; }
+    .contact-card p { margin: 0; color: var(--ink-soft); }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 30px 0 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; gap: 34px; min-height: 0; }
+      .hero h1 { max-width: 15ch; }
+      .research-map { max-width: 650px; }
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+    }
+
+    @media (max-width: 820px) {
+      .shell { display: block; }
+
+      .rail {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: block;
+        height: auto;
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--rule);
+        background: rgba(242, 240, 234, 0.97);
+        backdrop-filter: blur(10px);
+      }
+
+      .rail-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .brand span, .rail-foot { display: none; }
+
+      .menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 40px;
+        padding: 8px 11px;
+        border: 1px solid var(--rule);
+        border-radius: 5px;
+        background: var(--paper-raised);
+        color: var(--navy-deep);
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .nav-list {
+        display: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        margin: 13px 0 2px;
+        padding-top: 11px;
+        border-top: 1px solid var(--rule);
+      }
+
+      .nav-list.open { display: grid; }
+      .nav-link { border-left: 0; padding: 8px; }
+      .nav-link.active { background: var(--teal-soft); border-radius: 4px; }
+
+      main { padding: 0 20px 30px; }
+      .hero { padding: 54px 0 42px; }
+      .content-section:first-of-type { padding-top: 48px; }
+      section.content-section { margin-bottom: 58px; scroll-margin-top: 82px; }
+      .fact-grid { grid-template-columns: 1fr; }
+      .entry-head, .row { display: block; }
+      .meta { display: block; margin-top: 6px; white-space: normal; }
+      .contact-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      body { font-size: 17px; }
+      .hero h1 { font-size: clamp(38px, 12vw, 50px); }
+      .tagline { font-size: 18px; }
+      .research-map { padding: 14px; }
+      .metric-grid { grid-template-columns: 1fr; }
+      .metric, .metric:not(:first-child) { padding: 13px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
+      .metric:last-child { border-bottom: 0; }
+      .actions .button { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="shell">
+    <nav class="rail" aria-label="Primary navigation">
+      <div>
+        <div class="rail-top">
+          <div class="brand">Tanish Singh Rajpal<span>Quantum information systems</span></div>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
+        </div>
+        <ul class="nav-list" id="site-navigation">
+          <li><a class="nav-link" href="#about" data-section="about">About</a></li>
+          <li><a class="nav-link" href="#research" data-section="research">Research</a></li>
+          <li><a class="nav-link" href="#publications" data-section="publications">Publications</a></li>
+          <li><a class="nav-link" href="#projects" data-section="projects">Selected projects</a></li>
+          <li><a class="nav-link" href="#experience" data-section="experience">Experience</a></li>
+          <li><a class="nav-link" href="#recognition" data-section="recognition">Recognition</a></li>
+          <li><a class="nav-link" href="#contact" data-section="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="rail-foot">Carnegie Mellon University<br>Information Networking Institute<br>Pittsburgh, Pennsylvania</div>
+    </nav>
+
+    <main id="main-content">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">PhD applicant for Fall 2027</p>
+          <h1>Reinforcement learning for quantum information systems.</h1>
+          <p class="tagline">I study how learned policies and algorithmic methods can solve structured decision problems in quantum networks and quantum computing—from entanglement routing and decoding to circuit design for chemistry and materials.</p>
+          <div class="actions">
+            <a class="button primary" href="Tanish_Rajpal_CV.pdf" download>Download CV</a>
+            <a class="button" href="mailto:trajpal@andrew.cmu.edu">Email me</a>
+          </div>
+        </div>
+
+        <div class="research-map" aria-labelledby="graph-title">
+          <p class="map-heading" id="graph-title">Research trajectory</p>
+          <svg class="research-graph" viewBox="0 0 420 370" role="group" aria-label="Animated directed acyclic graph showing the progression of my research interests">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f756d"></path>
+              </marker>
+            </defs>
+
+            <g aria-hidden="true">
+              <path class="graph-edge" marker-end="url(#arrow)" d="M115 66 C132 66 132 108 145 116"></path>
+              <path class="graph-edge" marker-end="url(#arrow)" d="M115 168 C132 168 132 140 145 126"></path>
+              <path class="graph-edge" marker-end="url(#arrow)" d="M265 121 C283 121 282 46 300 46"></path>
+              <path class="graph-edge" marker-end="url(#arrow)" d="M265 121 C281 121 284 138 300 138"></path>
+              <path class="graph-edge" marker-end="url(#arrow)" d="M265 121 C283 121 282 230 300 230"></path>
+              <path class="graph-edge" marker-end="url(#arrow)" d="M357 256 C357 278 348 280 348 300"></path>
+
+              <path class="graph-flow" style="--duration:2.2s;--delay:-.4s" d="M115 66 C132 66 132 108 145 116"></path>
+              <path class="graph-flow" style="--duration:2.9s;--delay:-1.1s" d="M115 168 C132 168 132 140 145 126"></path>
+              <path class="graph-flow" style="--duration:2.5s;--delay:-.8s" d="M265 121 C283 121 282 46 300 46"></path>
+              <path class="graph-flow" style="--duration:3.1s;--delay:-1.7s" d="M265 121 C281 121 284 138 300 138"></path>
+              <path class="graph-flow" style="--duration:2.7s;--delay:-1.3s" d="M265 121 C283 121 282 230 300 230"></path>
+              <path class="graph-flow" style="--duration:2.4s;--delay:-.6s" d="M357 256 C357 278 348 280 348 300"></path>
+            </g>
+
+            <g class="graph-node" data-node="engineering" role="button" tabindex="0" aria-label="Computer engineering foundation" aria-expanded="false" aria-controls="graph-detail">
+              <rect x="5" y="40" width="110" height="52" rx="8"></rect>
+              <circle cx="20" cy="56" r="4"></circle>
+              <text x="18" y="73"><tspan>Computer</tspan><tspan x="18" dy="14">engineering</tspan></text>
+            </g>
+
+            <g class="graph-node" data-node="security" role="button" tabindex="0" aria-label="Information security foundation" aria-expanded="false" aria-controls="graph-detail">
+              <rect x="5" y="142" width="110" height="52" rx="8"></rect>
+              <circle cx="20" cy="158" r="4"></circle>
+              <text x="18" y="176">Information security</text>
+            </g>
+
+            <g class="graph-node core" data-node="rl" role="button" tabindex="0" aria-label="Reinforcement learning methods" aria-expanded="false" aria-controls="graph-detail">
+              <rect x="145" y="92" width="120" height="58" rx="9"></rect>
+              <circle cx="161" cy="109" r="4"></circle>
+              <text x="158" y="126"><tspan>Reinforcement</tspan><tspan x="158" dy="15">learning</tspan></text>
+            </g>
+
+            <g class="graph-node" data-node="networking" role="button" tabindex="0" aria-label="Quantum networking current research" aria-expanded="false" aria-controls="graph-detail">
+              <rect x="300" y="20" width="115" height="52" rx="8"></rect>
+              <circle cx="315" cy="36" r="4"></circle>
+              <text x="313" y="54">Quantum networks</text>
+            </g>
+
+            <g class="graph-node" data-node="qec" role="button" tabindex="0" aria-label="Quantum error correction research direction" aria-expanded="false" aria-controls="graph-detail">
+              <rect x="300" y="112" width="115" height="52" rx="8"></rect>
+              <circle cx="315" cy="128" r="4"></circle>
+              <text x="313" y="145"><tspan>Error correction</tspan></text>
+            </g>
+
+            <g class="graph-node" data-node="algorithms" role="button" tabindex="0" aria-label="Quantum algorithm design research direction" aria-expanded="false" aria-controls="graph-detail">
+              <rect x="300" y="204" width="115" height="52" rx="8"></rect>
+              <circle cx="315" cy="220" r="4"></circle>
+              <text x="313" y="237"><tspan>Quantum algorithm</tspan><tspan x="313" dy="14">design</tspan></text>
+            </g>
+
+            <g class="graph-node future" data-node="chemistry" role="button" tabindex="0" aria-label="Quantum chemistry and drug design long-term direction" aria-expanded="false" aria-controls="graph-detail">
+              <rect x="280" y="300" width="135" height="58" rx="9"></rect>
+              <circle cx="296" cy="317" r="4"></circle>
+              <text x="293" y="334"><tspan>Quantum chemistry</tspan><tspan x="293" dy="15">and drug design</tspan></text>
+            </g>
+          </svg>
+
+          <div class="graph-detail" id="graph-detail" aria-live="polite">
+            <strong>A connected research progression</strong>
+            <p>Select a node to see how each stage builds on the previous one.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="content-section" id="about">
+        <h2 class="section-label">About</h2>
+        <p class="lede">I'm a graduate student at Carnegie Mellon University's Information Networking Institute, finishing an MS in Information Technology&nbsp;–&nbsp;Information Security in May 2027. My undergraduate degree is in Computer Engineering, where I graduated valedictorian with a 3.83/4.00 GPA.</p>
+        <p>My path into quantum computing came through networking and security — I got interested in quantum networks as a distributed-systems problem first, and found that the reinforcement-learning tools I already knew transferred more directly than I expected. That's shaped how I think about the field since: I'm less interested in quantum computing as a topic to study from the outside, and more interested in it as a set of concrete, structured decision problems — routing, decoding, circuit construction — that a learned policy can plausibly do better than a hand-derived heuristic, if the problem is posed carefully.</p>
+        <p>I'm currently applying to PhD programs for Fall 2027, looking for a research home where that approach — RL and algorithmic thinking applied to real quantum-hardware problems — has room to grow, whether that ends up being quantum error correction, quantum chemistry algorithms, or something that blends the two.</p>
+      </section>
+
+      <section class="content-section" id="research">
+        <h2 class="section-label">Research</h2>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Reinforcement-learning-based routing for heterogeneous quantum networks <span class="status">In progress</span></h3>
+            <span class="meta">May–October 2026</span>
+          </div>
+          <p class="kicker">Independent Study, Information Networking Institute, CMU — Advisor: Prof. Michael Mattarock</p>
+
+          <p>Quantum networks move entanglement, not bits, and the thing you're optimizing for — fidelity — degrades with every hop and every noisy component in a way that classical shortest-path routing was never built to reason about. This project asks a narrow, concrete version of a bigger question: can a decentralized learned policy, using only local information, route entanglement through a noisy quantum network as well as or better than a centralized heuristic that can see the whole topology?</p>
+
+          <p>I built a router using Proximal Policy Optimization, implemented in NetSquid, where each node runs its own agent making decisions from a fixed, scale-invariant observation and action space — meaning the same trained policy generalizes across network sizes without retraining. I benchmarked it against two centralized baselines: a negative-log-fidelity-weighted Dijkstra's algorithm, and simple hop-count routing, across both homogeneous and heterogeneous quantum hardware models.</p>
+
+          <div class="metric-grid" aria-label="Preliminary simulation results">
+            <div class="metric"><span class="metric-value">≥99%</span><span class="metric-label">mean fidelity, homogeneous grids 3×3–10×10</span></div>
+            <div class="metric"><span class="metric-value">90–93%</span><span class="metric-label">mean fidelity under heterogeneous hardware noise</span></div>
+            <div class="metric"><span class="metric-value">5 / 6</span><span class="metric-label">tested configurations at 100% routing success</span></div>
+            <div class="metric"><span class="metric-value">3</span><span class="metric-label">independent training seeds per result</span></div>
+          </div>
+
+          <p>The one configuration that didn't hit 100% success is worth stating plainly rather than smoothing over: the 10×10 homogeneous grid reached an 84.4% success rate with a wide ±27.0% spread across seeds — a real signal about where decentralized, locally-observed policies start to strain as network size grows, and a concrete direction for follow-up work rather than a clean result to round up.</p>
+
+          <p class="note">Research preprint and journal submission targeted for October 2026. Simulation code, trained models, and results will be released as an open-source repository on completion.</p>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>A hybrid architecture for post-quantum EAP-TLS <span class="status">In progress</span></h3>
+            <span class="meta">August 2026–April 2027</span>
+          </div>
+          <p class="kicker">Master's Thesis, Information Networking Institute, CMU — Advisors: Prof. Pedro Bustamante &amp; Prof. Michael Mattarock · Reader: Prof. Patrick Tague</p>
+
+          <p>Post-quantum cryptographic certificates are large enough to break assumptions that classical network protocols quietly depend on. This thesis looks at one specific failure mode: oversized ML-DSA (post-quantum) certificates used in EAP-TLS authentication can trigger silent Path MTU Discovery blackholes — connections that fail without any clear error, because a packet is dropped somewhere and nothing reports it.</p>
+
+          <p>The proposed fix combines an edge QUIC-terminating proxy at the Wireless LAN Controller with a Quantum Key Distribution–secured wired backbone, inside a hybrid WPA-Enterprise 802.1X architecture. The thesis is organized around four testable hypotheses, simulated in NS-3:</p>
+
+          <ul class="detail">
+            <li>Handshake latency — targeting a ≥40% reduction in Flow Completion Time under elevated wireless error rates.</li>
+            <li>RADIUS server compute offload under the proxy architecture.</li>
+            <li>IPv4/IPv6 baseline isolation, to separate protocol-specific effects from the core result.</li>
+            <li>Sustained QKD key-delivery capacity under high-density authentication bursts.</li>
+          </ul>
+
+          <p class="note">Thesis defense and final report targeted for Spring 2027. Simulation code and datasets will be released via a CMU-hosted GitHub repository and the CMU KiltHub data repository.</p>
+        </article>
+      </section>
+
+      <section class="content-section" id="publications">
+        <h2 class="section-label">Publications</h2>
+
+        <h3 class="subheading">Journal articles</h3>
+        <article class="publication">
+          <p class="citation"><strong>Rajpal, T. S., &amp; Naithani, A. (2026).</strong> NeuroCrypt: A Neuro-Symbolic AI Ecosystem for Advanced Cryptographic Data Security and Transmission. <span class="venue">IEEE Transactions on Artificial Intelligence, 7</span>(1), 512–521.</p>
+          <p>NeuroCrypt pairs a rule-based cryptographic engine with a deep neural network to dynamically generate symmetric keys, aiming to make encryption harder to model and attack than a fixed algorithm. Evaluated against classical ciphers (AES, DES) and neural-network-based attacks, it showed a 25% increase in measured security resilience and a 15% reduction in key-management overhead.</p>
+          <a class="pub-link" href="https://doi.org/10.1109/TAI.2025.3577605" target="_blank" rel="noopener noreferrer">doi.org/10.1109/TAI.2025.3577605</a>
+        </article>
+
+        <h3 class="subheading">Conference papers</h3>
+        <article class="publication">
+          <p class="citation"><strong>Naithani, A., &amp; Rajpal, T. S. (2025).</strong> Blockchain-Based Digital Health Passport: A Decentralized Framework for Secure and Interoperable Health Data Management. <span class="venue">2025 IEEE Zooming Innovation in Consumer Technologies Conference (ZINC)</span>.</p>
+          <p>A decentralized health-record system built to guarantee data immutability and patient ownership through a unique identifier and OTP-based consent mechanism, designed for secure interoperability across providers at national scale. It uses a hybrid on/off-chain storage model with public-key encryption and role-based access control, aiming to keep large medical records both secure and compliant without sacrificing scalability.</p>
+          <a class="pub-link" href="https://doi.org/10.1109/ZINC65316.2025.11100281" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ZINC65316.2025.11100281</a>
+        </article>
+
+        <article class="publication">
+          <p class="citation"><strong>Naithani, A., Rajpal, T. S., &amp; Mistry, V. (2024).</strong> TAV-Cart: Transaction Assistance and Validation Cart System for Effortless Shopping and Checkout. <span class="venue">2024 International Conference on Advances in Computing, Communication and Materials (ICACCM)</span>.</p>
+          <p>A system design for a smart shopping cart intended as a lower-cost alternative to RFID-based carts: dual barcode scanners and a strain-gauge weight-validation system cross-check that what's scanned matches what's physically in the cart, an LED strip gives real-time feedback, and checkout happens directly through UPI — India's national instant-payment system — removing the need for a cashier line. This is a feasibility and system-architecture study, not a deployed retail pilot.</p>
+          <a class="pub-link" href="https://doi.org/10.1109/ICACCM61117.2024.11059075" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ICACCM61117.2024.11059075</a>
+        </article>
+
+        <article class="publication">
+          <p class="citation"><strong>Naithani, A., Jain, V., Mistry, V., &amp; Rajpal, T. S. (2024).</strong> AI Based Goalkeeper for Penalty Shot Prediction Using RNN and Pattern Matching Algorithm. <span class="venue">2024 12th International Symposium on Digital Forensics and Security (ISDFS)</span>.</p>
+          <p>Built a predictive model — a recurrent neural network combined with a pattern-matching module — that learns a penalty taker's shot-direction tendencies from their history and predicts where they'll shoot next. Tested against four shooting strategies (a fixed repeating pattern, always the same side, fully random, and adaptively shooting away from the keeper's last dive) at 30 shots each: fully random shooting produced the lowest save rate of any strategy, directly showing that unpredictability is a penalty taker's strongest defense against a model trying to read them. Validated against Cristiano Ronaldo's recorded penalty history from the 2014–15 through 2017–18 seasons: the AI model saved 17 of 53 penalties in situations where the real goalkeepers on record saved 13 — a modest but real improvement, and an initial prototype rather than a production system.</p>
+          <a class="pub-link" href="https://doi.org/10.1109/ISDFS60797.2024.10527307" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ISDFS60797.2024.10527307</a>
+          <span aria-hidden="true"> · </span>
+          <a class="pub-link" href="https://github.com/Akshit-Naithani/AI-Based-Goalkeeper-for-Penalty-Shot-Prediction-Using-RNN-and-Pattern-Matching-Algorithm" target="_blank" rel="noopener noreferrer">Code repository</a>
+        </article>
+      </section>
+
+      <section class="content-section" id="projects">
+        <h2 class="section-label">Selected projects</h2>
+        <div class="row">
+          <div>
+            <h3>Quantum portfolio optimization using QAOA — Team Lead</h3>
+            <div class="org">Yale University's YQuantum 2026 Hackathon — 3rd place</div>
+            <p>Built a quantum computing approach to optimizing insurance investment portfolios: mapping classical Markowitz portfolio theory into a QUBO formulation, then converting that into an Ising Hamiltonian solvable with the Quantum Approximate Optimization Algorithm. Led the team's circuit construction and problem formulation work over the hackathon.</p>
+            <a class="pub-link" href="https://github.com/ilayd-a/Optimization-of-Premium-Investment-Portfolios" target="_blank" rel="noopener noreferrer">View repository</a>
+          </div>
+          <span class="meta">April 2026</span>
+        </div>
+      </section>
+
+      <section class="content-section" id="experience">
+        <h2 class="section-label">Experience</h2>
+        <div class="row">
+          <div>
+            <h3>Vulnerability Assessment and Penetration Testing Intern</h3>
+            <div class="org">Newton's Apple, Pune, India</div>
+            <p>Ran penetration testing on a confidential oil company's Android application using Burp Suite and Metasploit, identifying and helping remediate three critical vulnerabilities that protected sensitive operational data. Static Java code analysis work, done in collaboration with the development team, contributed to a 40% reduction in common security flaws in subsequent releases.</p>
+          </div>
+          <span class="meta">October 2023–January 2024</span>
+        </div>
+      </section>
+
+      <section class="content-section" id="recognition">
+        <h2 class="section-label">Recognition and leadership</h2>
+        <div class="row">
+          <div><h3>Student Ambassador</h3><div class="org">Information Networking Institute, Carnegie Mellon University</div></div>
+          <span class="meta">October 2025–present</span>
+        </div>
+        <div class="row">
+          <div><h3>IBM Qiskit Global Summer School 2026 · Excellence Badge</h3><div class="org">Completed Labs 0–4 and the Advanced Track.</div></div>
+          <span class="meta">2026</span>
+        </div>
+        <div class="row">
+          <div><h3>Third place · Yale YQuantum Hackathon</h3><div class="org">Quantum portfolio optimization project</div></div>
+          <span class="meta">2026</span>
+        </div>
+        <div class="row">
+          <div><h3>First place · Crypto Quest Cybersecurity Competition</h3><div class="org">Tech-Fest Ambiora</div></div>
+          <span class="meta">2024</span>
+        </div>
+      </section>
+
+      <section class="content-section" id="contact">
+        <h2 class="section-label">Contact</h2>
+        <div class="contact-card">
+          <div>
+            <h3>Let's talk about quantum information systems.</h3>
+            <p>I am applying to PhD programs for Fall 2027 and welcome conversations about quantum networking, reinforcement-learning-based error correction, and quantum algorithms.</p>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="mailto:trajpal@andrew.cmu.edu">trajpal@andrew.cmu.edu</a>
+          </div>
+        </div>
+        <p class="sans" style="margin-top:18px;font-size:13px">
+          <a href="https://github.com/tanishsinghrajpal1029" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span aria-hidden="true"> · </span>
+          <a href="https://www.linkedin.com/in/tanish-singh-rajpal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span aria-hidden="true"> · </span>
+          <a href="Tanish_Rajpal_CV.pdf" download>CV</a>
+        </p>
+      </section>
+
+      <footer>
+        <span>© 2026 Tanish Singh Rajpal</span>
+        <span>San Francisco, CA · Last updated September 2026</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const navList = document.querySelector('.nav-list');
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+    const sections = navLinks.map(link => document.getElementById(link.dataset.section)).filter(Boolean);
+
+    menuButton.addEventListener('click', () => {
+      const open = !navList.classList.contains('open');
+      navList.classList.toggle('open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? 'Close' : 'Menu';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'Menu';
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === entry.target.id));
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+    sections.forEach(section => observer.observe(section));
+
+    const mapCopy = {
+      engineering: {
+        title: 'Foundation: computer engineering',
+        body: 'My undergraduate training gave me the systems, algorithms, and hardware perspective from which I approach quantum information problems.'
+      },
+      security: {
+        title: 'Foundation: information security',
+        body: 'My master’s training and thesis connect protocol behavior, adversarial constraints, and post-quantum systems engineering.'
+      },
+      rl: {
+        title: 'Methodological bridge: reinforcement learning',
+        body: 'I use learned policies to turn noisy, partially observed, physically constrained systems into structured sequential decision problems.'
+      },
+      networking: {
+        title: 'Current research: quantum networking',
+        body: 'I use decentralized reinforcement learning to route entanglement under noisy, heterogeneous hardware constraints.'
+      },
+      qec: {
+        title: 'Research direction: quantum error correction',
+        body: 'Decoding can be framed as sequential inference from noisy syndrome information—a natural extension of my work on locally observed routing policies.'
+      },
+      algorithms: {
+        title: 'Research direction: quantum algorithms',
+        body: 'I am interested in RL-assisted circuit and algorithm design for chemistry and materials, approached from computer engineering while building the required scientific domain knowledge.'
+      },
+      chemistry: {
+        title: 'Long-term direction: quantum chemistry and drug design',
+        body: 'My long-term goal is to develop quantum algorithms that support molecular modeling and drug discovery, while collaborating with domain scientists and building the chemistry foundation needed to do the work responsibly.'
+      }
+    };
+
+    const mapNodes = Array.from(document.querySelectorAll('.graph-node'));
+    const mapDetail = document.getElementById('graph-detail');
+
+    function activateGraphNode(node) {
+        const selected = node.getAttribute('aria-expanded') !== 'true';
+        mapNodes.forEach(item => item.setAttribute('aria-expanded', 'false'));
+
+        if (!selected) {
+          mapDetail.innerHTML = '<strong>A connected research progression</strong><p>Select a node to see how each stage builds on the previous one.</p>';
+          return;
+        }
+
+        node.setAttribute('aria-expanded', 'true');
+        const copy = mapCopy[node.dataset.node];
+        mapDetail.replaceChildren();
+        const title = document.createElement('strong');
+        const body = document.createElement('p');
+        title.textContent = copy.title;
+        body.textContent = copy.body;
+        mapDetail.append(title, body);
+    }
+
+    mapNodes.forEach(node => {
+      node.addEventListener('click', () => activateGraphNode(node));
+      node.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activateGraphNode(node);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
