@@ -11,10 +11,15 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tanish Singh Rajpal | Quantum Information Systems Research">
   <meta property="og:description" content="Reinforcement learning and algorithmic methods for quantum networks, quantum computing, and secure systems.">
+  <meta property="og:url" content="https://www.tanishsinghrajpal.com/">
+  <meta property="og:image" content="https://www.tanishsinghrajpal.com/social-card.png">
+  <meta property="og:image:alt" content="Tanish Singh Rajpal — reinforcement learning for quantum information systems">
   <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tanish Singh Rajpal | Research">
   <meta name="twitter:description" content="Reinforcement learning for quantum information systems.">
+  <meta name="twitter:image" content="https://www.tanishsinghrajpal.com/social-card.png">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121a2c'/%3E%3Ccircle cx='20' cy='32' r='6' fill='%23f2f0ea'/%3E%3Ccircle cx='44' cy='19' r='6' fill='%232f756d'/%3E%3Ccircle cx='44' cy='45' r='6' fill='%232f756d'/%3E%3Cpath d='M26 30 38 22M26 34l12 8M44 25v14' stroke='%23f2f0ea' stroke-width='3' fill='none'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,6 +55,7 @@
 
     body {
       margin: 0;
+      overflow-x: clip;
       background: var(--paper);
       color: var(--ink);
       font-family: "Newsreader", Georgia, serif;
@@ -191,6 +197,8 @@
     }
 
     .hero {
+      position: relative;
+      isolation: isolate;
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr);
       gap: 46px;
@@ -198,6 +206,25 @@
       min-height: 610px;
       padding: 74px 0 56px;
       border-bottom: 1px solid var(--rule);
+    }
+
+    .hero::after {
+      position: absolute;
+      top: 8%;
+      right: 0;
+      z-index: -1;
+      width: 54%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(47, 117, 109, 0.12), transparent 68%);
+      filter: blur(10px);
+      content: "";
+      pointer-events: none;
+      animation: ambient-drift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambient-drift {
+      to { transform: translate3d(-5%, 4%, 0) scale(1.08); }
     }
 
     .eyebrow,
@@ -252,6 +279,7 @@
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
+      transition: color 180ms ease, background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
     }
 
     .button.primary {
@@ -262,16 +290,39 @@
     .button:hover {
       background: var(--teal-soft);
       color: var(--navy-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(18, 26, 44, 0.08);
     }
 
     .button.primary:hover { background: var(--navy); color: #fff; }
 
     .research-map {
+      position: relative;
+      overflow: hidden;
       padding: 22px;
       border: 1px solid var(--rule);
       border-radius: var(--radius);
       background: color-mix(in srgb, var(--paper-raised) 86%, transparent);
       box-shadow: 0 18px 44px rgba(18, 26, 44, 0.06);
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .research-map::before {
+      position: absolute;
+      inset: -35% 42% 50% -15%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(47, 117, 109, 0.12), transparent 70%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .research-map > * { position: relative; z-index: 1; }
+
+    @media (hover: hover) {
+      .research-map:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 24px 52px rgba(18, 26, 44, 0.1);
+      }
     }
 
     .map-heading {
@@ -396,6 +447,77 @@
 
     .lede { max-width: 66ch; font-size: 24px !important; line-height: 1.55 !important; }
 
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(270px, 0.8fr);
+      gap: clamp(34px, 5vw, 64px);
+      align-items: start;
+    }
+
+    .about-copy p { max-width: 66ch; }
+
+    .profile-feature {
+      position: relative;
+      margin: 0;
+    }
+
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper-raised);
+      box-shadow: 0 18px 44px rgba(18, 26, 44, 0.09);
+    }
+
+    .photo-frame::after {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: inherit;
+      content: "";
+      pointer-events: none;
+    }
+
+    .photo-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter 300ms ease;
+    }
+
+    .photo-index {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 9px;
+      border: 1px solid rgba(250, 249, 245, 0.7);
+      border-radius: 999px;
+      background: rgba(18, 26, 44, 0.78);
+      color: #fff;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .profile-feature figcaption {
+      margin-top: 12px;
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    @media (hover: hover) {
+      .profile-feature:hover .photo-frame img {
+        transform: scale(1.025);
+        filter: saturate(1.05);
+      }
+    }
+
     .fact-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -419,8 +541,22 @@
 
     .fact span { color: var(--ink-soft); font-size: 15px; }
 
-    .entry { margin-bottom: 68px; }
+    .entry {
+      margin: 0 -22px 68px;
+      padding: 24px 22px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
+    }
     .entry:last-child { margin-bottom: 0; }
+
+    @media (hover: hover) {
+      .entry:hover {
+        border-color: var(--line);
+        background: rgba(250, 249, 245, 0.62);
+        transform: translateY(-3px);
+      }
+    }
 
     .entry-head {
       display: flex;
@@ -512,6 +648,11 @@
       margin-bottom: 42px;
       padding: 2px 0 2px 22px;
       border-left: 2px solid var(--navy);
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+
+    @media (hover: hover) {
+      .publication:hover { border-left-color: var(--teal); transform: translateX(6px); }
     }
 
     .publication:last-child { margin-bottom: 0; }
@@ -535,12 +676,70 @@
       gap: 22px;
       padding: 26px 0;
       border-bottom: 1px solid var(--rule);
+      transition: background 180ms ease, transform 180ms ease;
     }
 
     .row:last-child { border-bottom: 0; }
     .row h3 { margin: 0 0 5px; font-size: 23px; line-height: 1.32; }
     .row .org { color: var(--ink-soft); font-size: 17px; font-style: italic; }
     .row p { margin: 14px 0 0; font-size: 18.5px; line-height: 1.64; }
+
+    @media (hover: hover) {
+      .row:hover { transform: translateX(6px); }
+    }
+
+    .project-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin: 22px 0 26px;
+      counter-reset: project-step;
+    }
+
+    .project-step {
+      position: relative;
+      min-height: 96px;
+      padding: 15px 13px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: rgba(250, 249, 245, 0.72);
+      color: var(--navy-deep);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.38;
+      counter-increment: project-step;
+    }
+
+    .project-step::before {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--teal);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      content: "0" counter(project-step);
+    }
+
+    .project-step:not(:last-child)::after {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      z-index: 2;
+      width: 9px;
+      height: 9px;
+      border-top: 1.5px solid var(--teal);
+      border-right: 1.5px solid var(--teal);
+      content: "";
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .js [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 700ms ease var(--reveal-delay, 0ms), transform 700ms cubic-bezier(.2,.7,.2,1) var(--reveal-delay, 0ms);
+    }
+
+    .js [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 
     .contact-card {
       display: grid;
@@ -572,6 +771,7 @@
       .hero { grid-template-columns: 1fr; gap: 34px; min-height: 0; }
       .hero h1 { max-width: 15ch; }
       .research-map { max-width: 650px; }
+      .about-layout { grid-template-columns: minmax(0, 1.1fr) minmax(250px, 0.9fr); }
       .metric-grid { grid-template-columns: 1fr 1fr; }
       .metric:nth-child(2) { border-right: 0; }
       .metric:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
@@ -630,9 +830,13 @@
       .content-section:first-of-type { padding-top: 48px; }
       section.content-section { margin-bottom: 58px; scroll-margin-top: 82px; }
       .fact-grid { grid-template-columns: 1fr; }
+      .about-layout { grid-template-columns: 1fr; }
+      .profile-feature { order: -1; width: min(100%, 520px); }
       .entry-head, .row { display: block; }
       .meta { display: block; margin-top: 6px; white-space: normal; }
       .contact-card { grid-template-columns: 1fr; }
+      .project-flow { grid-template-columns: 1fr 1fr; }
+      .project-step:nth-child(2)::after { display: none; }
     }
 
     @media (max-width: 520px) {
@@ -644,6 +848,14 @@
       .metric, .metric:not(:first-child) { padding: 13px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
       .metric:last-child { border-bottom: 0; }
       .actions .button { width: 100%; justify-content: center; }
+      .entry { margin-inline: 0; padding: 20px 0; }
+      .project-flow { grid-template-columns: 1fr; gap: 10px; }
+      .project-step { min-height: 0; }
+      .project-step::after { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -672,7 +884,7 @@
 
     <main id="main-content">
       <header class="hero">
-        <div>
+        <div data-reveal>
           <p class="eyebrow">PhD applicant for Fall 2027</p>
           <h1>Reinforcement learning for quantum information systems.</h1>
           <p class="tagline">I study how learned policies and algorithmic methods can solve structured decision problems in quantum networks and quantum computing—from entanglement routing and decoding to circuit design for chemistry and materials.</p>
@@ -682,7 +894,7 @@
           </div>
         </div>
 
-        <div class="research-map" aria-labelledby="graph-title">
+        <div class="research-map" aria-labelledby="graph-title" data-reveal>
           <p class="map-heading" id="graph-title">Research trajectory</p>
           <svg class="research-graph" viewBox="0 0 420 370" role="group" aria-label="Animated directed acyclic graph showing the progression of my research interests">
             <defs>
@@ -759,15 +971,26 @@
 
       <section class="content-section" id="about">
         <h2 class="section-label">About</h2>
-        <p class="lede">I'm a graduate student at Carnegie Mellon University's Information Networking Institute, finishing an MS in Information Technology&nbsp;–&nbsp;Information Security in May 2027. My undergraduate degree is in Computer Engineering, where I graduated valedictorian with a 3.83/4.00 GPA.</p>
-        <p>My path into quantum computing came through networking and security — I got interested in quantum networks as a distributed-systems problem first, and found that the reinforcement-learning tools I already knew transferred more directly than I expected. That's shaped how I think about the field since: I'm less interested in quantum computing as a topic to study from the outside, and more interested in it as a set of concrete, structured decision problems — routing, decoding, circuit construction — that a learned policy can plausibly do better than a hand-derived heuristic, if the problem is posed carefully.</p>
-        <p>I'm currently applying to PhD programs for Fall 2027, looking for a research home where that approach — RL and algorithmic thinking applied to real quantum-hardware problems — has room to grow, whether that ends up being quantum error correction, quantum chemistry algorithms, or something that blends the two.</p>
+        <div class="about-layout">
+          <div class="about-copy" data-reveal>
+            <p class="lede">I'm a graduate student at Carnegie Mellon University's Information Networking Institute, finishing an MS in Information Technology&nbsp;–&nbsp;Information Security in May 2027. My undergraduate degree is in Computer Engineering, where I graduated valedictorian with a 3.83/4.00 GPA.</p>
+            <p>My path into quantum computing came through networking and security — I got interested in quantum networks as a distributed-systems problem first, and found that the reinforcement-learning tools I already knew transferred more directly than I expected. That's shaped how I think about the field since: I'm less interested in quantum computing as a topic to study from the outside, and more interested in it as a set of concrete, structured decision problems — routing, decoding, circuit construction — that a learned policy can plausibly do better than a hand-derived heuristic, if the problem is posed carefully.</p>
+            <p>I'm currently applying to PhD programs for Fall 2027, looking for a research home where that approach — RL and algorithmic thinking applied to real quantum-hardware problems — has room to grow, whether that ends up being quantum error correction, quantum chemistry algorithms, or something that blends the two.</p>
+          </div>
+          <figure class="profile-feature" data-reveal>
+            <div class="photo-frame">
+              <img src="stanford-visit.jpg" width="1200" height="1500" loading="lazy" decoding="async" alt="Tanish Singh Rajpal standing on a palm-lined campus walkway during a visit to Stanford University">
+              <span class="photo-index">Campus visit</span>
+            </div>
+            <figcaption>At Stanford University during a campus visit.</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="content-section" id="research">
         <h2 class="section-label">Research</h2>
 
-        <article class="entry">
+        <article class="entry" data-reveal>
           <div class="entry-head">
             <h3>Reinforcement-learning-based routing for heterogeneous quantum networks <span class="status">In progress</span></h3>
             <span class="meta">May–October 2026</span>
@@ -790,7 +1013,7 @@
           <p class="note">Research preprint and journal submission targeted for October 2026. Simulation code, trained models, and results will be released as an open-source repository on completion.</p>
         </article>
 
-        <article class="entry">
+        <article class="entry" data-reveal>
           <div class="entry-head">
             <h3>A hybrid architecture for post-quantum EAP-TLS <span class="status">In progress</span></h3>
             <span class="meta">August 2026–April 2027</span>
@@ -816,26 +1039,26 @@
         <h2 class="section-label">Publications</h2>
 
         <h3 class="subheading">Journal articles</h3>
-        <article class="publication">
+        <article class="publication" data-reveal>
           <p class="citation"><strong>Rajpal, T. S., &amp; Naithani, A. (2026).</strong> NeuroCrypt: A Neuro-Symbolic AI Ecosystem for Advanced Cryptographic Data Security and Transmission. <span class="venue">IEEE Transactions on Artificial Intelligence, 7</span>(1), 512–521.</p>
           <p>NeuroCrypt pairs a rule-based cryptographic engine with a deep neural network to dynamically generate symmetric keys, aiming to make encryption harder to model and attack than a fixed algorithm. Evaluated against classical ciphers (AES, DES) and neural-network-based attacks, it showed a 25% increase in measured security resilience and a 15% reduction in key-management overhead.</p>
           <a class="pub-link" href="https://doi.org/10.1109/TAI.2025.3577605" target="_blank" rel="noopener noreferrer">doi.org/10.1109/TAI.2025.3577605</a>
         </article>
 
         <h3 class="subheading">Conference papers</h3>
-        <article class="publication">
+        <article class="publication" data-reveal>
           <p class="citation"><strong>Naithani, A., &amp; Rajpal, T. S. (2025).</strong> Blockchain-Based Digital Health Passport: A Decentralized Framework for Secure and Interoperable Health Data Management. <span class="venue">2025 IEEE Zooming Innovation in Consumer Technologies Conference (ZINC)</span>.</p>
           <p>A decentralized health-record system built to guarantee data immutability and patient ownership through a unique identifier and OTP-based consent mechanism, designed for secure interoperability across providers at national scale. It uses a hybrid on/off-chain storage model with public-key encryption and role-based access control, aiming to keep large medical records both secure and compliant without sacrificing scalability.</p>
           <a class="pub-link" href="https://doi.org/10.1109/ZINC65316.2025.11100281" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ZINC65316.2025.11100281</a>
         </article>
 
-        <article class="publication">
+        <article class="publication" data-reveal>
           <p class="citation"><strong>Naithani, A., Rajpal, T. S., &amp; Mistry, V. (2024).</strong> TAV-Cart: Transaction Assistance and Validation Cart System for Effortless Shopping and Checkout. <span class="venue">2024 International Conference on Advances in Computing, Communication and Materials (ICACCM)</span>.</p>
           <p>A system design for a smart shopping cart intended as a lower-cost alternative to RFID-based carts: dual barcode scanners and a strain-gauge weight-validation system cross-check that what's scanned matches what's physically in the cart, an LED strip gives real-time feedback, and checkout happens directly through UPI — India's national instant-payment system — removing the need for a cashier line. This is a feasibility and system-architecture study, not a deployed retail pilot.</p>
           <a class="pub-link" href="https://doi.org/10.1109/ICACCM61117.2024.11059075" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ICACCM61117.2024.11059075</a>
         </article>
 
-        <article class="publication">
+        <article class="publication" data-reveal>
           <p class="citation"><strong>Naithani, A., Jain, V., Mistry, V., &amp; Rajpal, T. S. (2024).</strong> AI Based Goalkeeper for Penalty Shot Prediction Using RNN and Pattern Matching Algorithm. <span class="venue">2024 12th International Symposium on Digital Forensics and Security (ISDFS)</span>.</p>
           <p>Built a predictive model — a recurrent neural network combined with a pattern-matching module — that learns a penalty taker's shot-direction tendencies from their history and predicts where they'll shoot next. Tested against four shooting strategies (a fixed repeating pattern, always the same side, fully random, and adaptively shooting away from the keeper's last dive) at 30 shots each: fully random shooting produced the lowest save rate of any strategy, directly showing that unpredictability is a penalty taker's strongest defense against a model trying to read them. Validated against Cristiano Ronaldo's recorded penalty history from the 2014–15 through 2017–18 seasons: the AI model saved 17 of 53 penalties in situations where the real goalkeepers on record saved 13 — a modest but real improvement, and an initial prototype rather than a production system.</p>
           <a class="pub-link" href="https://doi.org/10.1109/ISDFS60797.2024.10527307" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ISDFS60797.2024.10527307</a>
@@ -846,10 +1069,16 @@
 
       <section class="content-section" id="projects">
         <h2 class="section-label">Selected projects</h2>
-        <div class="row">
+        <div class="row" data-reveal>
           <div>
             <h3>Quantum portfolio optimization using QAOA — Team Lead</h3>
             <div class="org">Yale University's YQuantum 2026 Hackathon — 3rd place</div>
+            <div class="project-flow" aria-label="Project method: Markowitz portfolio model to QUBO, then Ising Hamiltonian, then QAOA">
+              <div class="project-step">Markowitz portfolio model</div>
+              <div class="project-step">QUBO formulation</div>
+              <div class="project-step">Ising Hamiltonian</div>
+              <div class="project-step">QAOA circuit</div>
+            </div>
             <p>Built a quantum computing approach to optimizing insurance investment portfolios: mapping classical Markowitz portfolio theory into a QUBO formulation, then converting that into an Ising Hamiltonian solvable with the Quantum Approximate Optimization Algorithm. Led the team's circuit construction and problem formulation work over the hackathon.</p>
             <a class="pub-link" href="https://github.com/ilayd-a/Optimization-of-Premium-Investment-Portfolios" target="_blank" rel="noopener noreferrer">View repository</a>
           </div>
@@ -859,7 +1088,7 @@
 
       <section class="content-section" id="experience">
         <h2 class="section-label">Experience</h2>
-        <div class="row">
+        <div class="row" data-reveal>
           <div>
             <h3>Vulnerability Assessment and Penetration Testing Intern</h3>
             <div class="org">Newton's Apple, Pune, India</div>
@@ -871,19 +1100,19 @@
 
       <section class="content-section" id="recognition">
         <h2 class="section-label">Recognition and leadership</h2>
-        <div class="row">
+        <div class="row" data-reveal>
           <div><h3>Student Ambassador</h3><div class="org">Information Networking Institute, Carnegie Mellon University</div></div>
           <span class="meta">October 2025–present</span>
         </div>
-        <div class="row">
+        <div class="row" data-reveal>
           <div><h3>IBM Qiskit Global Summer School 2026 · Excellence Badge</h3><div class="org">Completed Labs 0–4 and the Advanced Track.</div></div>
           <span class="meta">2026</span>
         </div>
-        <div class="row">
+        <div class="row" data-reveal>
           <div><h3>Third place · Yale YQuantum Hackathon</h3><div class="org">Quantum portfolio optimization project</div></div>
           <span class="meta">2026</span>
         </div>
-        <div class="row">
+        <div class="row" data-reveal>
           <div><h3>First place · Crypto Quest Cybersecurity Competition</h3><div class="org">Tech-Fest Ambiora</div></div>
           <span class="meta">2024</span>
         </div>
@@ -891,7 +1120,7 @@
 
       <section class="content-section" id="contact">
         <h2 class="section-label">Contact</h2>
-        <div class="contact-card">
+        <div class="contact-card" data-reveal>
           <div>
             <h3>Let's talk about quantum information systems.</h3>
             <p>I am applying to PhD programs for Fall 2027 and welcome conversations about quantum networking, reinforcement-learning-based error correction, and quantum algorithms.</p>
@@ -945,6 +1174,20 @@
     }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
     sections.forEach(section => observer.observe(section));
+
+    const revealItems = Array.from(document.querySelectorAll('[data-reveal]'));
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    revealItems.forEach((item, index) => {
+      item.style.setProperty('--reveal-delay', `${Math.min(index % 3, 2) * 70}ms`);
+      revealObserver.observe(item);
+    });
 
     const mapCopy = {
       engineering: {
