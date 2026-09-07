@@ -23,8 +23,8 @@
     (() => {
       const root = document.documentElement;
       let savedTheme = null;
-      try { savedTheme = localStorage.getItem('theme'); } catch {}
-      root.dataset.theme = savedTheme || 'dark';
+      try { savedTheme = localStorage.getItem('tanish-site-theme-v2'); } catch {}
+      root.dataset.theme = savedTheme || 'light';
       document.querySelector('meta[name="theme-color"]').setAttribute('content', root.dataset.theme === 'dark' ? '#0b1220' : '#f2f0ea');
       root.classList.add('js');
     })();
@@ -1254,7 +1254,7 @@
     themeToggle.addEventListener('click', () => {
       const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = nextTheme;
-      try { localStorage.setItem('theme', nextTheme); } catch {}
+      try { localStorage.setItem('tanish-site-theme-v2', nextTheme); } catch {}
       syncThemeControl();
     });
 
