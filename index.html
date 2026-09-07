@@ -184,6 +184,26 @@
     .nav-link.active { border-left-color: var(--teal); }
     .nav-link.active::before { background: var(--teal); }
 
+    .nav-link.utility {
+      margin-top: 12px;
+      padding: 9px 11px;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      color: var(--navy-deep);
+      font-weight: 600;
+    }
+
+    .nav-link.utility::before {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: none;
+      color: var(--teal);
+      content: "↓";
+    }
+
+    .nav-link.utility:hover { border-color: var(--teal); background: var(--teal-soft); }
+
     .rail-foot {
       color: var(--ink-soft);
       font-family: "Space Grotesk", system-ui, sans-serif;
@@ -824,6 +844,7 @@
       .nav-list.open { display: grid; }
       .nav-link { border-left: 0; padding: 8px; }
       .nav-link.active { background: var(--teal-soft); border-radius: 4px; }
+      .nav-link.utility { margin-top: 0; border: 1px solid var(--rule); }
 
       main { padding: 0 20px 30px; }
       .hero { padding: 54px 0 42px; }
@@ -876,7 +897,8 @@
           <li><a class="nav-link" href="#projects" data-section="projects">Selected projects</a></li>
           <li><a class="nav-link" href="#experience" data-section="experience">Experience</a></li>
           <li><a class="nav-link" href="#recognition" data-section="recognition">Recognition</a></li>
-          <li><a class="nav-link" href="#contact" data-section="contact">Contact</a></li>
+          <li><a class="nav-link" href="contact.html" data-section="contact">Contact</a></li>
+          <li><a class="nav-link utility" href="Tanish_Rajpal_CV.pdf" download>CV</a></li>
         </ul>
       </div>
       <div class="rail-foot">Carnegie Mellon University<br>Information Networking Institute<br>Pittsburgh, Pennsylvania</div>
@@ -890,7 +912,7 @@
           <p class="tagline">I study how learned policies and algorithmic methods can solve structured decision problems in quantum networks and quantum computing—from entanglement routing and decoding to circuit design for chemistry and materials.</p>
           <div class="actions">
             <a class="button primary" href="Tanish_Rajpal_CV.pdf" download>Download CV</a>
-            <a class="button" href="mailto:trajpal@andrew.cmu.edu">Email me</a>
+            <a class="button" href="contact.html">Reach out</a>
           </div>
         </div>
 
@@ -1126,7 +1148,8 @@
             <p>I am applying to PhD programs for Fall 2027 and welcome conversations about quantum networking, reinforcement-learning-based error correction, and quantum algorithms.</p>
           </div>
           <div class="actions">
-            <a class="button primary" href="mailto:trajpal@andrew.cmu.edu">trajpal@andrew.cmu.edu</a>
+            <a class="button primary" href="contact.html">Open reach-out page</a>
+            <a class="button" href="mailto:trajpal@andrew.cmu.edu">Email directly</a>
           </div>
         </div>
         <p class="sans" style="margin-top:18px;font-size:13px">
