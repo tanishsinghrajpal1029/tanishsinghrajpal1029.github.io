@@ -7,7 +7,7 @@
   <meta name="description" content="Contact Tanish Singh Rajpal about PhD research, quantum networking, reinforcement learning for quantum systems, and quantum algorithms.">
   <meta name="author" content="Tanish Singh Rajpal">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#121a2c">
+  <meta name="theme-color" content="#f2f0ea">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Reach Out | Tanish Singh Rajpal">
   <meta property="og:description" content="Start a conversation about quantum information systems, reinforcement learning, and PhD research.">
@@ -22,9 +22,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      let savedTheme = null;
+      try { savedTheme = localStorage.getItem('theme'); } catch {}
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.dataset.theme = savedTheme || systemTheme;
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', root.dataset.theme === 'dark' ? '#0b1220' : '#f2f0ea');
+      root.classList.add('js');
+    })();
+  </script>
   <style>
     :root {
+      color-scheme: light;
       --paper: #f2f0ea;
       --paper-raised: #faf9f5;
       --paper-dim: #e8e5dc;
@@ -38,6 +49,21 @@
       --rule: #c8c3b5;
       --rail: 220px;
       --radius: 10px;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #0b1220;
+      --paper-raised: #121c2d;
+      --paper-dim: #172338;
+      --ink: #ece9e1;
+      --ink-soft: #adb6c4;
+      --navy: #6f8aaa;
+      --navy-deep: #edf1f6;
+      --teal: #6dbbb0;
+      --teal-soft: #173630;
+      --line: #26364d;
+      --rule: #314158;
     }
 
     * { box-sizing: border-box; }
@@ -195,6 +221,26 @@
     }
 
     .nav-link.utility:hover { border-color: var(--teal); background: var(--teal-soft); }
+
+    .theme-toggle {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+      padding: 9px 11px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12.5px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover { background: var(--teal-soft); color: var(--navy-deep); }
+    .theme-icon { display: grid; width: 18px; height: 18px; place-items: center; color: var(--teal); font-size: 15px; }
 
     .rail-foot {
       color: var(--ink-soft);
@@ -458,6 +504,25 @@
     .form-status { grid-column: 1 / -1; min-height: 20px; margin: 0; color: var(--teal); font-size: 12px; font-weight: 600; }
     .form-status.error { color: #a13e37; }
 
+    .form-success {
+      display: flex;
+      grid-column: 1 / -1;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 14px;
+      margin: 0;
+      padding: 13px 15px;
+      border-left: 3px solid var(--teal);
+      background: var(--teal-soft);
+      color: var(--navy-deep);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12.5px;
+    }
+
+    .form-success[hidden] { display: none; }
+    .form-success strong { font-weight: 700; }
+    .form-success a { margin-left: auto; font-weight: 600; white-space: nowrap; }
+
     .honeypot {
       position: absolute !important;
       left: -10000px !important;
@@ -471,6 +536,19 @@
       opacity: 0.68;
       transform: none;
     }
+
+    :root[data-theme="dark"] .skip-link { background: #edf1f6; color: #0b1220; }
+    :root[data-theme="dark"] .reachout-grid { background: rgba(18, 28, 45, 0.9); box-shadow: 0 22px 58px rgba(0, 0, 0, 0.24); }
+    :root[data-theme="dark"] .contact-panel { background: linear-gradient(150deg, rgba(8, 15, 27, 0.99), rgba(16, 26, 43, 0.99)); }
+    :root[data-theme="dark"] input,
+    :root[data-theme="dark"] select,
+    :root[data-theme="dark"] textarea { background: rgba(9, 17, 29, 0.75); }
+    :root[data-theme="dark"] input:focus,
+    :root[data-theme="dark"] select:focus,
+    :root[data-theme="dark"] textarea:focus { background: #101a2b; }
+    :root[data-theme="dark"] .send-button { border-color: #4f6f95; background: #263854; color: #fff; }
+    :root[data-theme="dark"] .send-button:hover { border-color: var(--teal); background: var(--teal); color: #08110f; }
+    :root[data-theme="dark"] .form-status.error { color: #ef8d86; }
 
     footer {
       display: flex;
@@ -544,6 +622,7 @@
       .nav-link { border-left: 0; padding: 8px; }
       .nav-link.active { border-radius: 4px; background: var(--teal-soft); }
       .nav-link.utility { margin-top: 0; border: 1px solid var(--rule); }
+      .theme-toggle { margin-top: 0; border-color: var(--rule); }
 
       main { padding: 0 20px 28px; }
       .reachout-hero { padding: 52px 0 34px; }
@@ -556,7 +635,8 @@
       .hero-copy { font-size: 18px; }
       .contact-panel, .message-panel { padding: 24px 20px; }
       .form-grid, .social-grid { grid-template-columns: 1fr; }
-      .field.full, .send-button, .form-note, .form-status { grid-column: 1; }
+      .field.full, .send-button, .form-note, .form-status, .form-success { grid-column: 1; }
+      .form-success a { width: 100%; margin-left: 0; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -568,6 +648,8 @@
       }
       .js [data-reveal] { opacity: 1; transform: none; }
     }
+
+    :root[data-theme="dark"] .rail { background: rgba(11, 18, 32, 0.96); }
   </style>
 </head>
 <body>
@@ -589,6 +671,7 @@
           <li><a class="nav-link" href="index.html#recognition">Recognition</a></li>
           <li><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
           <li><a class="nav-link utility" href="Tanish_Rajpal_CV.pdf" download>CV</a></li>
+          <li><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button></li>
         </ul>
       </div>
       <div class="rail-foot">Carnegie Mellon University<br>Information Networking Institute<br>Pittsburgh, Pennsylvania</div>
@@ -686,6 +769,11 @@
             <button class="send-button" type="submit"><span aria-hidden="true">↗</span> <span class="send-label">Send message</span></button>
             <p class="form-note">Your message will be delivered directly. Your email application will not open.</p>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            <div class="form-success" id="form-success" role="status" aria-live="polite" tabindex="-1" hidden>
+              <strong>Message sent.</strong>
+              <span>Thank you—I’ll get back to you as soon as I can.</span>
+              <a href="index.html">Return to homepage →</a>
+            </div>
           </form>
         </div>
       </section>
@@ -700,6 +788,28 @@
   <script>
     const menuButton = document.querySelector('.menu-button');
     const navList = document.querySelector('.nav-list');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const themeLabel = themeToggle.querySelector('.theme-label');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+
+    function syncThemeControl() {
+      const isDark = document.documentElement.dataset.theme === 'dark';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+      themeIcon.textContent = isDark ? '☀' : '☾';
+      themeLabel.textContent = isDark ? 'Light mode' : 'Dark mode';
+      themeColor.setAttribute('content', isDark ? '#0b1220' : '#f2f0ea');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = nextTheme;
+      try { localStorage.setItem('theme', nextTheme); } catch {}
+      syncThemeControl();
+    });
+
+    syncThemeControl();
 
     menuButton.addEventListener('click', () => {
       const open = !navList.classList.contains('open');
@@ -737,6 +847,7 @@
 
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
+    const formSuccess = document.getElementById('form-success');
 
     const submitButton = contactForm.querySelector('.send-button');
     const sendLabel = contactForm.querySelector('.send-label');
@@ -749,6 +860,7 @@
       sendLabel.textContent = 'Sending…';
       formStatus.classList.remove('error');
       formStatus.textContent = '';
+      formSuccess.hidden = true;
 
       try {
         const response = await fetch(contactForm.action, {
@@ -764,7 +876,8 @@
         }
 
         contactForm.reset();
-        formStatus.textContent = 'Message sent. Thank you—I’ll get back to you as soon as I can.';
+        formSuccess.hidden = false;
+        formSuccess.focus();
       } catch (error) {
         formStatus.classList.add('error');
         formStatus.textContent = error.message || 'The message could not be sent. Please email me directly instead.';

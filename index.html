@@ -7,7 +7,7 @@
   <meta name="description" content="Tanish Singh Rajpal is a Carnegie Mellon graduate student researching reinforcement learning for quantum networks, quantum information systems, and post-quantum security.">
   <meta name="author" content="Tanish Singh Rajpal">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#121a2c">
+  <meta name="theme-color" content="#f2f0ea">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tanish Singh Rajpal | Quantum Information Systems Research">
   <meta property="og:description" content="Reinforcement learning and algorithmic methods for quantum networks, quantum computing, and secure systems.">
@@ -19,13 +19,24 @@
   <meta name="twitter:title" content="Tanish Singh Rajpal | Research">
   <meta name="twitter:description" content="Reinforcement learning for quantum information systems.">
   <meta name="twitter:image" content="https://www.tanishsinghrajpal.com/social-card.png">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      let savedTheme = null;
+      try { savedTheme = localStorage.getItem('theme'); } catch {}
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.dataset.theme = savedTheme || systemTheme;
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', root.dataset.theme === 'dark' ? '#0b1220' : '#f2f0ea');
+      root.classList.add('js');
+    })();
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121a2c'/%3E%3Ccircle cx='20' cy='32' r='6' fill='%23f2f0ea'/%3E%3Ccircle cx='44' cy='19' r='6' fill='%232f756d'/%3E%3Ccircle cx='44' cy='45' r='6' fill='%232f756d'/%3E%3Cpath d='M26 30 38 22M26 34l12 8M44 25v14' stroke='%23f2f0ea' stroke-width='3' fill='none'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
+      color-scheme: light;
       --paper: #f2f0ea;
       --paper-raised: #faf9f5;
       --paper-dim: #e8e5dc;
@@ -39,6 +50,21 @@
       --rule: #c8c3b5;
       --rail: 220px;
       --radius: 10px;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #0b1220;
+      --paper-raised: #121c2d;
+      --paper-dim: #172338;
+      --ink: #ece9e1;
+      --ink-soft: #adb6c4;
+      --navy: #6f8aaa;
+      --navy-deep: #edf1f6;
+      --teal: #6dbbb0;
+      --teal-soft: #173630;
+      --line: #26364d;
+      --rule: #314158;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -206,6 +232,38 @@
     }
 
     .nav-link.utility:hover { border-color: var(--teal); background: var(--teal-soft); }
+
+    .theme-toggle {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+      padding: 9px 11px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12.5px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover { background: var(--teal-soft); color: var(--navy-deep); }
+    .theme-icon { display: grid; width: 18px; height: 18px; place-items: center; color: var(--teal); font-size: 15px; }
+
+    :root[data-theme="dark"] .skip-link { background: #edf1f6; color: #0b1220; }
+    :root[data-theme="dark"] .button.primary { border-color: #4f6f95; background: #263854; color: #fff; }
+    :root[data-theme="dark"] .button.primary:hover { background: #31506e; color: #fff; }
+    :root[data-theme="dark"] .graph-node.core rect { fill: #263854; stroke: #6dbbb0; }
+    :root[data-theme="dark"] .graph-node.core:hover rect,
+    :root[data-theme="dark"] .graph-node.core[aria-expanded="true"] rect,
+    :root[data-theme="dark"] .graph-node.core:focus-visible rect { fill: #31506e; }
+    :root[data-theme="dark"] .fact,
+    :root[data-theme="dark"] .project-step { background: rgba(18, 28, 45, 0.84); }
+    :root[data-theme="dark"] .entry:hover { background: rgba(18, 28, 45, 0.62); }
+    :root[data-theme="dark"] .photo-frame::after { border-color: rgba(255, 255, 255, 0.12); }
 
     .rail-foot {
       color: var(--ink-soft);
@@ -848,6 +906,7 @@
       .nav-link { border-left: 0; padding: 8px; }
       .nav-link.active { background: var(--teal-soft); border-radius: 4px; }
       .nav-link.utility { margin-top: 0; border: 1px solid var(--rule); }
+      .theme-toggle { margin-top: 0; border-color: var(--rule); }
 
       main { padding: 0 20px 30px; }
       .hero { padding: 54px 0 42px; }
@@ -881,6 +940,8 @@
     @media (prefers-reduced-motion: reduce) {
       .js [data-reveal] { opacity: 1; transform: none; }
     }
+
+    :root[data-theme="dark"] .rail { background: rgba(11, 18, 32, 0.96); }
   </style>
 </head>
 <body>
@@ -902,6 +963,7 @@
           <li><a class="nav-link" href="#recognition" data-section="recognition">Recognition</a></li>
           <li><a class="nav-link" href="contact.html" data-section="contact">Contact</a></li>
           <li><a class="nav-link utility" href="Tanish_Rajpal_CV.pdf" download>CV</a></li>
+          <li><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button></li>
         </ul>
       </div>
       <div class="rail-foot">Carnegie Mellon University<br>Information Networking Institute<br>Pittsburgh, Pennsylvania</div>
@@ -1176,6 +1238,28 @@
     const navList = document.querySelector('.nav-list');
     const navLinks = Array.from(document.querySelectorAll('.nav-link'));
     const sections = navLinks.map(link => document.getElementById(link.dataset.section)).filter(Boolean);
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const themeLabel = themeToggle.querySelector('.theme-label');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+
+    function syncThemeControl() {
+      const isDark = document.documentElement.dataset.theme === 'dark';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+      themeIcon.textContent = isDark ? '☀' : '☾';
+      themeLabel.textContent = isDark ? 'Light mode' : 'Dark mode';
+      themeColor.setAttribute('content', isDark ? '#0b1220' : '#f2f0ea');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = nextTheme;
+      try { localStorage.setItem('theme', nextTheme); } catch {}
+      syncThemeControl();
+    });
+
+    syncThemeControl();
 
     menuButton.addEventListener('click', () => {
       const open = !navList.classList.contains('open');
