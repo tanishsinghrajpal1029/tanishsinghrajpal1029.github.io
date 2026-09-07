@@ -138,7 +138,10 @@
       font-weight: 700;
       line-height: 1.35;
       color: var(--navy-deep);
+      text-decoration: none;
     }
+
+    .brand:hover { color: var(--teal); }
 
     .brand span {
       display: block;
@@ -887,7 +890,7 @@
     <nav class="rail" aria-label="Primary navigation">
       <div>
         <div class="rail-top">
-          <div class="brand">Tanish Singh Rajpal<span>Quantum information systems</span></div>
+          <a class="brand" href="index.html" aria-label="Tanish Singh Rajpal — home">Tanish Singh Rajpal<span>Quantum information systems</span></a>
           <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation">Menu</button>
         </div>
         <ul class="nav-list" id="site-navigation">
