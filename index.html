@@ -768,6 +768,63 @@
       .row:hover { transform: translateX(6px); }
     }
 
+    .credential-card {
+      display: grid;
+      grid-template-columns: 148px minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: start;
+      margin: 24px 0 16px;
+      padding: 24px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--paper-raised) 92%, transparent);
+    }
+
+    .credential-badge {
+      display: block;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #0b36a8;
+      box-shadow: 0 12px 28px rgba(18, 26, 44, 0.14);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .credential-badge img { display: block; width: 100%; height: auto; }
+
+    @media (hover: hover) {
+      .credential-badge:hover { box-shadow: 0 16px 34px rgba(18, 26, 44, 0.2); transform: translateY(-3px); }
+    }
+
+    .credential-kicker {
+      margin: 0 0 7px;
+      color: var(--teal);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .credential-card h3 { margin: 0 0 9px; font-size: 24px; line-height: 1.25; }
+    .credential-card .credential-description { margin: 0; color: var(--ink-soft); font-size: 17.5px; line-height: 1.6; }
+
+    .credential-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 15px;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .credential-meta {
+      color: var(--ink-soft);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
     .project-flow {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -916,6 +973,8 @@
       .profile-feature { order: -1; width: min(100%, 520px); }
       .entry-head, .row { display: block; }
       .meta { display: block; margin-top: 6px; white-space: normal; }
+      .credential-card { grid-template-columns: 120px minmax(0, 1fr); }
+      .credential-meta { grid-column: 2; white-space: normal; }
       .contact-card { grid-template-columns: 1fr; }
       .project-flow { grid-template-columns: 1fr 1fr; }
       .project-step:nth-child(2)::after { display: none; }
@@ -931,6 +990,10 @@
       .metric:last-child { border-bottom: 0; }
       .actions .button { width: 100%; justify-content: center; }
       .entry { margin-inline: 0; padding: 20px 0; }
+      .credential-card { grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding: 16px; }
+      .credential-card h3 { font-size: 20px; }
+      .credential-card .credential-description { font-size: 16px; }
+      .credential-meta { grid-column: 1 / -1; }
       .project-flow { grid-template-columns: 1fr; gap: 10px; }
       .project-step { min-height: 0; }
       .project-step::after { display: none; }
@@ -1186,13 +1249,24 @@
 
       <section class="content-section" id="recognition">
         <h2 class="section-label">Recognition and leadership</h2>
+        <article class="credential-card" data-reveal>
+          <a class="credential-badge" href="https://www.credly.com/go/kE1Hc080" target="_blank" rel="noopener noreferrer" aria-label="Verify the IBM Qiskit Global Summer School 2026 Quantum Excellence credential on Credly">
+            <img src="qgss-2026-quantum-excellence.png" alt="IBM Qiskit Global Summer School 2026 Quantum Excellence badge" width="1060" height="1060" loading="lazy">
+          </a>
+          <div>
+            <p class="credential-kicker">IBM Quantum · Advanced credential</p>
+            <h3>Qiskit Global Summer School 2026 — Quantum Excellence</h3>
+            <p class="credential-description">Earned IBM Quantum's advanced summer-school credential through core coursework and graded labs spanning hardware-aware circuits, noise and benchmarking, error mitigation, and paths toward quantum advantage—including QAOA and molecular quantum chemistry.</p>
+            <div class="credential-actions">
+              <a href="https://www.credly.com/go/kE1Hc080" target="_blank" rel="noopener noreferrer">Verify credential ↗</a>
+              <a href="QGSS-2026-Quantum-Excellence-Certificate.pdf" target="_blank" rel="noopener noreferrer">View certificate</a>
+            </div>
+          </div>
+          <span class="credential-meta">Issued August 21, 2026</span>
+        </article>
         <div class="row" data-reveal>
           <div><h3>Student Ambassador</h3><div class="org">Information Networking Institute, Carnegie Mellon University</div></div>
           <span class="meta">October 2025–present</span>
-        </div>
-        <div class="row" data-reveal>
-          <div><h3>IBM Qiskit Global Summer School 2026 · Excellence Badge</h3><div class="org">Completed Labs 0–4 and the Advanced Track.</div></div>
-          <span class="meta">2026</span>
         </div>
         <div class="row" data-reveal>
           <div><h3>Third place · Yale YQuantum Hackathon</h3><div class="org">Quantum portfolio optimization project</div></div>
