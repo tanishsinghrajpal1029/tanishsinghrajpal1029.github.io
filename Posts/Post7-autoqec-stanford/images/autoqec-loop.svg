@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">AutoQEC machine-discovery loop</title>
+  <desc id="desc">A three-stage loop connects proposed logical states, hardware simulation, and evaluation of a quantum error-correction objective. A gradient path returns to update the code and controls.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#10192c"/><stop offset="1" stop-color="#1b2c42"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#78c5b9"/></marker>
+  </defs>
+  <rect width="1200" height="680" rx="28" fill="url(#bg)"/>
+  <g fill="none" stroke="#78c5b9" stroke-width="5" marker-end="url(#arrow)"><path d="M350 335H470"/><path d="M730 335H850"/><path d="M980 440C900 585 300 585 220 440"/></g>
+  <g font-family="Garamond, Georgia, serif" text-anchor="middle">
+    <text x="600" y="92" fill="#f4f0e8" font-size="58" font-weight="600">AutoQEC</text>
+    <text x="600" y="136" fill="#aebac9" font-size="25">a machine-discovery loop for autonomous correction</text>
+    <g><rect x="90" y="235" width="260" height="200" rx="20" fill="#f4f0e8"/><circle cx="220" cy="278" r="15" fill="none" stroke="#2f756d" stroke-width="6"/><circle cx="190" cy="318" r="9" fill="#2f756d"/><circle cx="250" cy="318" r="9" fill="#2f756d"/><text x="220" y="365" fill="#121a2c" font-size="27" font-weight="600">Propose logical</text><text x="220" y="395" fill="#121a2c" font-size="27" font-weight="600">states</text><text x="220" y="423" fill="#4a5565" font-size="18">code parameters</text></g>
+    <g><rect x="470" y="235" width="260" height="200" rx="20" fill="#dce9e6"/><path d="M520 305h100l24-36 28 72 22-36h18" fill="none" stroke="#2f756d" stroke-width="6"/><text x="600" y="365" fill="#121a2c" font-size="27" font-weight="600">Simulate</text><text x="600" y="395" fill="#121a2c" font-size="27" font-weight="600">hardware</text><text x="600" y="423" fill="#4a5565" font-size="18">open-system evolution</text></g>
+    <g><rect x="850" y="235" width="260" height="200" rx="20" fill="#f4f0e8"/><path d="M910 327l42-42 38 29 54-66" fill="none" stroke="#2f756d" stroke-width="6"/><circle cx="1044" cy="248" r="8" fill="#2f756d"/><text x="980" y="365" fill="#121a2c" font-size="27" font-weight="600">Evaluate QEC</text><text x="980" y="395" fill="#121a2c" font-size="27" font-weight="600">objective</text><text x="980" y="423" fill="#4a5565" font-size="18">preserved information</text></g>
+    <text x="600" y="560" fill="#78c5b9" font-size="25" font-weight="600">gradients update the code and controls</text>
+    <text x="600" y="614" fill="#aebac9" font-size="19">The objective must distinguish correction from shortcuts.</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "title": "Can a quantum memory protect itself? Notes on AutoQEC at Stanford",
+  "date": "2026-09-09",
+  "category": "Talks & learning",
+  "tags": ["AutoQEC", "Quantum error correction", "Machine learning"],
+  "summary": "What I learned from Zelong Yin’s Q-FARM talk on machine discovery of autonomous quantum error-correction schemes—and why the optimization objective matters.",
+  "cover": "images/autoqec-loop.svg",
+  "cover_alt": "AutoQEC learning loop from proposed logical states through hardware simulation and QEC objective evaluation to gradient-based updates",
+  "source_url": "",
+  "source_label": "",
+  "published": true
+}

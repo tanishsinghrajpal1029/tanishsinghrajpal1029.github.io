@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can a quantum memory protect itself? Notes on AutoQEC at Stanford | Tanish Singh Rajpal</title>
+<meta name="description" content="What I learned from Zelong Yin’s Q-FARM talk on machine discovery of autonomous quantum error-correction schemes—and why the optimization objective matters."><meta name="author" content="Tanish Singh Rajpal">
+<meta name="theme-color" content="#f2f0ea"><meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tanishsinghrajpal.com/Posts/Post7-autoqec-stanford/">
+<meta property="og:type" content="article"><meta property="og:title" content="Can a quantum memory protect itself? Notes on AutoQEC at Stanford">
+<meta property="og:description" content="What I learned from Zelong Yin’s Q-FARM talk on machine discovery of autonomous quantum error-correction schemes—and why the optimization objective matters."><meta property="og:url" content="https://tanishsinghrajpal.com/Posts/Post7-autoqec-stanford/">
+<meta property="og:image" content="https://tanishsinghrajpal.com/Posts/Post7-autoqec-stanford/images/autoqec-loop.svg"><meta name="twitter:card" content="summary_large_image">
+<script src="../assets/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/posts.css"><script src="../assets/posts.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f756d'/%3E%3Ctext x='32' y='43' text-anchor='middle' fill='white' font-size='36' font-family='serif'%3ET%3C/text%3E%3C/svg%3E">
+</head><body>
+<a class="skip" href="#main-content">Skip to content</a>
+<progress class="progress" value="0" max="100" aria-label="Reading progress"></progress>
+<div class="shell"><nav class="rail" aria-label="Primary navigation"><div>
+<div class="rail-top"><a class="brand" href="../../index.html">Tanish Singh Rajpal<span>Quantum information<br>systems</span></a><button class="menu-button" aria-expanded="false" aria-controls="site-navigation" type="button">Menu</button></div>
+<ul class="nav-list" id="site-navigation"><li><a class="nav-link" href="../../index.html#about">About</a></li><li><a class="nav-link" href="../../index.html#research">Research</a></li><li><a class="nav-link" href="../../index.html#publications">Publications</a></li><li><a class="nav-link" href="../../index.html#projects">Selected projects</a></li><li><a class="nav-link" href="../../index.html#experience">Experience</a></li><li><a class="nav-link" href="../../index.html#recognition">Recognition</a></li>
+<li><a class="nav-link" aria-current="page" href="../index.html">Posts</a></li>
+<li><a class="nav-link" href="../../contact.html">Contact</a></li>
+<li><a class="nav-link utility" href="../../Tanish_Rajpal_CV.pdf" download>CV</a></li>
+<li><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button></li></ul></div>
+<div class="rail-foot">Research, visits,<br>and things I’m learning.</div></nav>
+<main id="main-content" class="article-main"><a class="back" href="../index.html">← All posts</a>
+<article><header class="article-header"><span class="eyebrow">Talks &amp; learning</span><h1>Can a quantum memory protect itself? Notes on AutoQEC at Stanford</h1><p class="summary">What I learned from Zelong Yin’s Q-FARM talk on machine discovery of autonomous quantum error-correction schemes—and why the optimization objective matters.</p><div class="meta"><time datetime="2026-09-09">September 9, 2026</time><span>2 min read</span><span>Tanish Singh Rajpal</span></div><div class="tags"><span class="tag">AutoQEC</span><span class="tag">Quantum error correction</span><span class="tag">Machine learning</span></div></header><figure class="cover "><img src="images/autoqec-loop.svg" alt="AutoQEC learning loop from proposed logical states through hardware simulation and QEC objective evaluation to gradient-based updates"></figure>
+<div class="prose"><p>Can a quantum memory protect itself?</p>
+<p>At Stanford Q-FARM, I attended Zelong Yin’s talk, “Machine Discovery of New Autonomous Quantum Error Correction Schemes,” with work by Zelong Yin, David Schuster, and Amir Safavi-Naeini. The talk introduced AutoQEC, a machine-discovery framework for designing autonomous quantum error-correction schemes.</p>
+<h2>Active correction versus autonomous correction</h2>
+<p>Standard active quantum error correction repeatedly measures checks and applies feedback. Those checks may be comparatively straightforward to implement, but the ancillas and feedback introduce cost and possible errors. Autonomous QEC aims to engineer the dynamics and dissipation so that the system corrects errors continuously, without the same measurement-and-feedback loop. The tradeoff is that the required dissipation and controls can be difficult to design.</p>
+<p>The Gottesman–Kitaev–Preskill code was a central example. GKP states are attractive because of their protection against displacement errors in both quadratures, but stabilizing them autonomously creates a demanding design problem.</p>
+<h2>How AutoQEC searches the design space</h2>
+<p>The framework begins by proposing logical states, simulates their evolution under a hardware model, and evaluates a quantum error-correction objective—such as idling fidelity, purity, or preserved information. Backward evolution then supplies gradients that can update both the logical code and the time- or frequency-dependent controls.</p>
+<p>The full model in the talk used a Universal Lindblad Equation framework, allowing the optimization to include a hardware model, environmental coupling, and trainable bath properties rather than treating the code independently of its physical implementation.</p>
+<h2>When an optimizer finds the wrong answer</h2>
+<p>One of the most useful parts of the talk was the discussion of failure modes. If the loss function asks only for high fidelity after photon loss, an optimizer may learn to reduce the number of photons instead of correcting the error. It can also overfit to the specified error, discover an echo-like mitigation strategy, or settle on a trivial solution.</p>
+<blockquote>A successful optimization result is not automatically an error-correcting code; the objective must reward the behavior we actually want.</blockquote>
+<h2>A machine-discovered stabilization mechanism</h2>
+<p>For a flux-pumped bosonic-mode model, AutoQEC found a stabilization mechanism involving strong driving, a non-rotationally symmetric code, protected Floquet eigenstates, and an effective phase-space attractor. The talk also connected the result to circuit implementation and explored the framework’s generality through star-code behavior.</p>
+<h2>My takeaway</h2>
+<p>This talk gave me a concrete example of how learning-based optimization can contribute to quantum error correction. AutoQEC is gradient-based rather than reinforcement learning, but the broader research question is closely related to my interests: how can an algorithm search a complex physical design space while remaining constrained by the hardware and by the behavior we truly need?</p>
+<p>I left with a stronger appreciation for both sides of the problem—the promise of machine-assisted discovery and the care required to specify the right objective.</p>
+</div><div class="article-end"><div class="next-links"><a href="../index.html">← Back to posts</a><a href="../Post6-google-san-francisco/index.html">Read next: Inside Google San Francisco: learning to enjoy the interview →</a></div></div></article>
+<footer><span>Tanish Singh Rajpal</span><span><a href="../../index.html">Home</a> · <a href="../../contact.html">Reach out</a> · <a href="https://github.com/tanishsinghrajpal1029">GitHub</a></span></footer>
+</main></div></body></html>
