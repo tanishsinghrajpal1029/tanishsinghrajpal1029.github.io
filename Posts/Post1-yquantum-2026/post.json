@@ -1,0 +1,12 @@
+{
+  "title": "From portfolios to quantum circuits at YQuantum",
+  "date": "2026-04",
+  "category": "Projects",
+  "tags": ["QAOA", "Quantum computing", "Optimization"],
+  "summary": "Our team’s third-place project in the Capgemini and The Hartford challenge track: portfolio optimization using QAOA.",
+  "cover": "images/workflow.svg",
+  "cover_alt": "Project workflow: Markowitz portfolio model to QUBO to Ising Hamiltonian to QAOA circuit",
+  "source_url": "https://www.linkedin.com/posts/tanish-singh-rajpal_quantumcomputing-hackathon-qaoa-activity-7449911798658609153-4C92",
+  "source_label": "My original LinkedIn post",
+  "published": true
+}

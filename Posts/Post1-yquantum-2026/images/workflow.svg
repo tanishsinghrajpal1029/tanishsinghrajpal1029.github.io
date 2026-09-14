@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">From a portfolio model to a quantum circuit</title><desc id="desc">Markowitz portfolio model flows to QUBO, Ising Hamiltonian, and QAOA.</desc>
+<rect width="1200" height="760" fill="#e4ece6"/>
+<g fill="none" stroke="#b8cec5" stroke-width="1"><circle cx="1080" cy="70" r="280"/><circle cx="1080" cy="70" r="220"/><circle cx="1080" cy="70" r="160"/></g>
+<text x="80" y="110" fill="#2f756d" font-family="sans-serif" font-size="24" letter-spacing="5">YQUANTUM · 2026</text>
+<text x="80" y="235" fill="#121a2c" font-family="sans-serif" font-size="64" font-weight="bold">An idea. A model.</text>
+<text x="80" y="310" fill="#121a2c" font-family="sans-serif" font-size="64" font-weight="bold">A quantum circuit.</text>
+<g font-family="sans-serif" font-size="23" text-anchor="middle">
+<rect x="80" y="430" width="220" height="125" rx="14" fill="#faf9f5"/><text x="190" y="485" fill="#121a2c">Markowitz</text><text x="190" y="517" fill="#121a2c">portfolio model</text>
+<rect x="355" y="430" width="195" height="125" rx="14" fill="#faf9f5"/><text x="452" y="501" fill="#121a2c">QUBO</text>
+<rect x="605" y="430" width="220" height="125" rx="14" fill="#faf9f5"/><text x="715" y="485" fill="#121a2c">Ising</text><text x="715" y="517" fill="#121a2c">Hamiltonian</text>
+<rect x="880" y="430" width="240" height="125" rx="14" fill="#2f756d"/><text x="1000" y="501" fill="#ffffff">QAOA circuit</text></g>
+<g fill="#2f756d"><path d="M310 489h23v-9l14 14-14 14v-9h-23z"/><path d="M560 489h23v-9l14 14-14 14v-9h-23z"/><path d="M835 489h23v-9l14 14-14 14v-9h-23z"/></g>
+<text x="80" y="670" font-family="sans-serif" font-size="23" fill="#40564e">PORTFOLIO OPTIMIZATION / RESEARCH NOTES</text>
+</svg>
