@@ -1147,25 +1147,31 @@
 
         <article class="entry" data-reveal>
           <div class="entry-head">
-            <h3>Reinforcement-learning-based routing for heterogeneous quantum networks <span class="status">In progress</span></h3>
+            <h3>End-to-end routing for heterogeneous quantum networks <span class="status">In progress</span></h3>
             <span class="meta">May–October 2026</span>
           </div>
           <p class="kicker">Independent Study, Information Networking Institute, CMU — Advisor: Prof. Michael Mattarock</p>
 
-          <p>Quantum networks move entanglement, not bits, and the thing you're optimizing for — fidelity — degrades with every hop and every noisy component in a way that classical shortest-path routing was never built to reason about. This project asks a narrow, concrete version of a bigger question: can a decentralized learned policy, using only local information, route entanglement through a noisy quantum network as well as or better than a centralized heuristic that can see the whole topology?</p>
+          <p>My independent study now tests routing decisions against the state that actually reaches a request's endpoints. In NetSquid, each selected path generates Bell pairs, applies link and memory noise, performs entanglement swaps and delayed classical corrections, and measures the final pair's fidelity. This lets me compare a learned local policy with classical routing methods using the same requests, topology, noise model, fidelity threshold, and deadline.</p>
 
-          <p>I built a router using Proximal Policy Optimization, implemented in NetSquid, where each node runs its own agent making decisions from a fixed, scale-invariant observation and action space — meaning the same trained policy generalizes across network sizes without retraining. I benchmarked it against two centralized baselines: a negative-log-fidelity-weighted Dijkstra's algorithm, and simple hop-count routing, across both homogeneous and heterogeneous quantum hardware models.</p>
+          <p>I trained five reinforcement-learning policies on 20×20 grids, then evaluated the frozen policies across five unseen 20×20 topologies and five unseen 30×30 topologies without retraining. In the 30×30 transfer experiment, the learned policy reached an endpoint measurement for 99.4% of requests and achieved 61.2% request acceptance. The negative-log-fidelity baseline achieved 64.3% acceptance on the same evaluation. The learned policy transferred to a larger network with near-baseline performance; the classical baseline remained stronger on acceptance.</p>
 
-          <div class="metric-grid" aria-label="Preliminary simulation results">
-            <div class="metric"><span class="metric-value">≥99%</span><span class="metric-label">mean fidelity, homogeneous grids 3×3–10×10</span></div>
-            <div class="metric"><span class="metric-value">90–93%</span><span class="metric-label">mean fidelity under heterogeneous hardware noise</span></div>
-            <div class="metric"><span class="metric-value">5 / 6</span><span class="metric-label">tested configurations at 100% routing success</span></div>
-            <div class="metric"><span class="metric-value">3</span><span class="metric-label">independent training seeds per result</span></div>
+          <div class="metric-grid" aria-label="Local simulation results under an idealized hardware scenario">
+            <div class="metric"><span class="metric-value">5 × 5</span><span class="metric-label">trained policies × unseen topologies per grid size</span></div>
+            <div class="metric"><span class="metric-value">30 × 30</span><span class="metric-label">largest grid tested without retraining</span></div>
+            <div class="metric"><span class="metric-value">61.2%</span><span class="metric-label">learned-policy request acceptance at 30×30</span></div>
+            <div class="metric"><span class="metric-value">64.3%</span><span class="metric-label">classical baseline acceptance at 30×30</span></div>
           </div>
 
-          <p>The one configuration that didn't hit 100% success is worth stating plainly rather than smoothing over: the 10×10 homogeneous grid reached an 84.4% success rate with a wide ±27.0% spread across seeds — a real signal about where decentralized, locally-observed policies start to strain as network size grows, and a concrete direction for follow-up work rather than a clean result to round up.</p>
+          <p class="note">These are local simulation results under an enhanced-memory, ideal Bell-state-measurement scenario; they are not hardware measurements. The model does not yet include network contention or throughput. Manuscript and reproducibility checks are in progress.</p>
+        </article>
 
-          <p class="note">Research preprint and journal submission targeted for October 2026. Simulation code, trained models, and results will be released as an open-source repository on completion.</p>
+        <article class="entry" data-reveal>
+          <div class="entry-head">
+            <h3>Quantum chemistry and biology <span class="status">In development</span></h3>
+          </div>
+          <p class="kicker">Independent study · Early stage</p>
+          <p>I am developing a new independent study at the intersection of quantum science, chemistry, and biology. The work is at an early stage, and I will share its research question, methods, and results when they are ready for public release.</p>
         </article>
 
         <article class="entry" data-reveal>

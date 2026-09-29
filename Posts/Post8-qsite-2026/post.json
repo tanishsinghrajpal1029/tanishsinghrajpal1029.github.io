@@ -1,0 +1,12 @@
+{
+  "title": "Phase Hunter and a week at Q-SITE Hacks 2026",
+  "date": "2026-09-29",
+  "category": "Projects",
+  "tags": ["Q-SITE Hacks", "Quantum computing", "PennyLane"],
+  "summary": "Three podium finishes, a close IonQ fourth place, and Phase Hunter: a playable experiment about quantum phases and noise.",
+  "cover": "images/phase-hunter-gameplay.png",
+  "cover_alt": "Phase Hunter game showing measurement points and a player-drawn phase boundary",
+  "source_url": "",
+  "source_label": "",
+  "published": true
+}

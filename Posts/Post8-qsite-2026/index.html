@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase Hunter and a week at Q-SITE Hacks 2026 | Tanish Singh Rajpal</title>
+<meta name="description" content="Three podium finishes, a close IonQ fourth place, and Phase Hunter: a playable experiment about quantum phases and noise."><meta name="author" content="Tanish Singh Rajpal">
+<meta name="theme-color" content="#f2f0ea"><meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tanishsinghrajpal.com/Posts/Post8-qsite-2026/">
+<meta property="og:type" content="article"><meta property="og:title" content="Phase Hunter and a week at Q-SITE Hacks 2026">
+<meta property="og:description" content="Three podium finishes, a close IonQ fourth place, and Phase Hunter: a playable experiment about quantum phases and noise."><meta property="og:url" content="https://tanishsinghrajpal.com/Posts/Post8-qsite-2026/">
+<meta property="og:image" content="https://tanishsinghrajpal.com/Posts/Post8-qsite-2026/images/phase-hunter-gameplay.png"><meta name="twitter:card" content="summary_large_image">
+<script src="../assets/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/posts.css"><script src="../assets/posts.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f756d'/%3E%3Ctext x='32' y='43' text-anchor='middle' fill='white' font-size='36' font-family='serif'%3ET%3C/text%3E%3C/svg%3E">
+</head><body>
+<a class="skip" href="#main-content">Skip to content</a>
+<progress class="progress" value="0" max="100" aria-label="Reading progress"></progress>
+<div class="shell"><nav class="rail" aria-label="Primary navigation"><div>
+<div class="rail-top"><a class="brand" href="../../index.html">Tanish Singh Rajpal<span>Quantum information<br>systems</span></a><button class="menu-button" aria-expanded="false" aria-controls="site-navigation" type="button">Menu</button></div>
+<ul class="nav-list" id="site-navigation"><li><a class="nav-link" href="../../index.html#about">About</a></li><li><a class="nav-link" href="../../index.html#research">Research</a></li><li><a class="nav-link" href="../../index.html#publications">Publications</a></li><li><a class="nav-link" href="../../index.html#projects">Selected projects</a></li><li><a class="nav-link" href="../../index.html#experience">Experience</a></li><li><a class="nav-link" href="../../index.html#recognition">Recognition</a></li>
+<li><a class="nav-link" aria-current="page" href="../index.html">Posts</a></li>
+<li><a class="nav-link" href="../../contact.html">Contact</a></li>
+<li><a class="nav-link utility" href="../../Tanish_Rajpal_CV.pdf" download>CV</a></li>
+<li><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button></li></ul></div>
+<div class="rail-foot">Research, visits,<br>and things I’m learning.</div></nav>
+<main id="main-content" class="article-main"><a class="back" href="../index.html">← All posts</a>
+<article><header class="article-header"><span class="eyebrow">Projects</span><h1>Phase Hunter and a week at Q-SITE Hacks 2026</h1><p class="summary">Three podium finishes, a close IonQ fourth place, and Phase Hunter: a playable experiment about quantum phases and noise.</p><div class="meta"><time datetime="2026-09-29">September 29, 2026</time><span>3 min read</span><span>Tanish Singh Rajpal</span></div><div class="tags"><span class="tag">Q-SITE Hacks</span><span class="tag">Quantum computing</span><span class="tag">PennyLane</span></div></header><figure class="cover"><img src="images/phase-hunter-gameplay.png" alt="Phase Hunter game showing measurement points and a player-drawn phase boundary"></figure>
+<div class="prose"><p>Three certificates from Q-SITE Hacks 2026, a near miss, and a game about noisy quantum measurements.</p>
+<p>At the University of Toronto’s Q-SITE Hacks, part of Qiskit Fall Fest 2026, our team placed third in the IBM Quantum Coding Challenge and third in the Overall Coding Challenge. We were runner-up in the Quantum Coalition Open Challenge’s Scientific Track. In the IonQ Championship, we finished fourth, 0.44 points off the podium.</p>
+<h2>Phase Hunter</h2>
+<p>For the Scientific Track, Paul Jeon, Sumedhaa Ruhil, and I built <em>Phase Hunter</em>. It turns a question about quantum spin phases into a playable experiment: with only a handful of measurements, can you find the hidden phase boundary in a ring of quantum spins?</p>
+<p>The game is the front end of a reproducible PennyLane simulation. Its notebook compares clean, noisy, and error-mitigated phase maps. Two findings stayed with us. Noise reduced the correlation signal and the area of the correctly mapped phase in different ways: the stripe phase lost more signal, while the aligned phase lost more map area. Under the smallest shot budget we tested, a simpler lower-noise baseline outperformed the correction method we tried. These are results from our simulation, not claims about a physical device.</p>
+<p><a href="https://www.youtube.com/watch?v=4ToD93ZoOsI">Watch the Phase Hunter demo ↗</a> · <a href="https://github.com/tanishsinghrajpal1029/phase-hunter-popeyes">Explore the code and notebook ↗</a></p>
+<h2>Team Popeyes, continued</h2>
+<p>The team name has a history. Hiram Zúñiga came up with “Team Popeyes” when we were teammates at Yale’s YQuantum hackathon. I carried it into Q-SITE with Paul and Sumedhaa. Consider this an acknowledgment to Hiram and a continuation of the legacy: a little spinach, a lot of quantum.</p>
+<p>Thank you to Paul and Sumedhaa for building this with me, and to the Q-SITE organizers, judges, and the University of Toronto for hosting. I’m also grateful to IBM Quantum and Qiskit, IonQ, Xanadu and PennyLane, the Quantum Coalition, PINQ², and AWS for making the challenges and workshops possible.</p></div><div class="article-end"><div class="next-links"><a href="../index.html">← Back to posts</a><a href="../Post7-autoqec-stanford/index.html">Read next: Can a quantum memory protect itself? →</a></div></div></article>
+<footer><span>Tanish Singh Rajpal</span><span><a href="../../index.html">Home</a> · <a href="../../contact.html">Reach out</a> · <a href="https://github.com/tanishsinghrajpal1029">GitHub</a></span></footer>
+</main></div></body></html>
