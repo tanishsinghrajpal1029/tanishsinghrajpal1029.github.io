@@ -764,6 +764,11 @@
     .row .org { color: var(--ink-soft); font-size: 17px; font-style: italic; }
     .row p { margin: 14px 0 0; font-size: 18.5px; line-height: 1.64; }
 
+    .project-visual { max-width: 780px; margin: 22px 0 19px; }
+    .project-visual img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: var(--radius); }
+    .project-visual figcaption { margin-top: 8px; color: var(--ink-soft); font-family: "Space Grotesk", system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; }
+
     @media (hover: hover) {
       .row:hover { transform: translateX(6px); }
     }
@@ -1221,6 +1226,22 @@
         <h2 class="section-label">Selected projects</h2>
         <div class="row" data-reveal>
           <div>
+            <h3>Phase Hunter — mapping quantum spin phases under noise</h3>
+            <div class="org">Team Popeyes · Q-SITE Hacks 2026 · Quantum Coalition Scientific Track runner-up</div>
+            <figure class="project-visual">
+              <img src="phase-hunter-gameplay.png" alt="Phase Hunter browser game showing measurement points on a hidden quantum spin phase map and a player-drawn boundary" width="1280" height="1056" loading="lazy" decoding="async">
+              <figcaption>A playable measurement game backed by reproducible PennyLane simulations.</figcaption>
+            </figure>
+            <p>With Paul Jeon and Sumedhaa Ruhil, I built a game in which players use a limited number of measurements to locate a hidden phase boundary in a ring of quantum spins. The accompanying notebook compares clean, noisy, and error-mitigated phase maps. In our simulated setting, the stripe phase lost more correlation signal while the aligned phase lost more classified map area. At the smallest shot budget tested, a lower-noise baseline outperformed error extrapolation.</p>
+            <div class="project-links">
+              <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/phase-hunter-popeyes" target="_blank" rel="noopener noreferrer">Code and notebook ↗</a>
+              <a class="pub-link" href="https://www.youtube.com/watch?v=4ToD93ZoOsI" target="_blank" rel="noopener noreferrer">Watch demo ↗</a>
+            </div>
+          </div>
+          <span class="meta">September 2026</span>
+        </div>
+        <div class="row" data-reveal>
+          <div>
             <h3>Quantum portfolio optimization using QAOA — Team Lead</h3>
             <div class="org">Yale University's YQuantum 2026 Hackathon — 3rd place</div>
             <div class="project-flow" aria-label="Project method: Markowitz portfolio model to QUBO, then Ising Hamiltonian, then QAOA">
@@ -1250,6 +1271,14 @@
 
       <section class="content-section" id="recognition">
         <h2 class="section-label">Recognition and leadership</h2>
+        <div class="row" data-reveal>
+          <div>
+            <h3>Three podium finishes · Q-SITE Hacks 2026</h3>
+            <div class="org">Team Popeyes · University of Toronto · Qiskit Fall Fest 2026</div>
+            <p>Runner-up in the Quantum Coalition Open Challenge, Scientific Track; third place in the IBM Quantum Coding Challenge; and third place in the Overall Coding Challenge. Also placed fourth in the IonQ Championship, 0.44 points from third.</p>
+          </div>
+          <span class="meta">September 2026</span>
+        </div>
         <article class="credential-card" data-reveal>
           <a class="credential-badge" href="https://www.credly.com/go/kE1Hc080" target="_blank" rel="noopener noreferrer" aria-label="Verify the IBM Qiskit Global Summer School 2026 Quantum Excellence credential on Credly">
             <img src="qgss-2026-quantum-excellence.png" alt="IBM Qiskit Global Summer School 2026 Quantum Excellence badge" width="1060" height="1060" loading="lazy">
