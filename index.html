@@ -543,7 +543,7 @@
 
     .photo-frame {
       position: relative;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
       border: 1px solid var(--rule);
       border-radius: var(--radius);
@@ -566,7 +566,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transform: scale(2.2);
+      transform: scale(1.85);
       transform-origin: center 45%;
       transition: transform 700ms cubic-bezier(.2,.7,.2,1), filter 300ms ease;
     }
@@ -598,7 +598,7 @@
 
     @media (hover: hover) {
       .profile-feature:hover .photo-frame img {
-        transform: scale(2.24);
+        transform: scale(1.89);
         filter: saturate(1.05);
       }
     }
