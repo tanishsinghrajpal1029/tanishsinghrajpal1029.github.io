@@ -5,7 +5,7 @@
   const asset = path => new URL(path, root).href;
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
-  stylesheet.href = asset('assets/site-assistant.css?v=1');
+  stylesheet.href = asset('assets/site-assistant.css?v=2');
   document.head.append(stylesheet);
 
   const guide = document.createElement('aside');
@@ -14,7 +14,7 @@
   guide.innerHTML = `
     <section class="site-guide__panel" id="site-guide-panel" aria-label="Website guide conversation" hidden>
       <div class="site-guide__header">
-        <img src="${asset('assets/site-guide-mascot.png')}" alt="" aria-hidden="true">
+        <span class="site-guide__mascot" aria-hidden="true"></span>
         <div class="site-guide__identity"><strong>Site guide</strong><span>Answers from the site and linked sources</span></div>
         <button class="site-guide__close" type="button" aria-label="Close site guide">×</button>
       </div>
@@ -27,7 +27,7 @@
       <p class="site-guide__note">Uses published content and selected linked sources. No AI service or chat history storage.</p>
     </section>
     <button class="site-guide__launcher" type="button" aria-controls="site-guide-panel" aria-expanded="false" aria-label="Open website guide">
-      <img src="${asset('assets/site-guide-mascot.png')}" alt="" aria-hidden="true"><span>Ask about this site</span>
+      <span class="site-guide__mascot" aria-hidden="true"></span><span>Ask about this site</span>
     </button>`;
   document.body.append(guide);
 
@@ -40,6 +40,7 @@
   const input = form.querySelector('input');
   let indexPromise;
   let initialized = false;
+  let lastSource = null;
 
   const stop = new Set('a about an and are at by can did do does explain find for from how i in info is know me my of on or our please say show tell the this to what where who with you your tanish rajpal singh'.split(' '));
   const normalize = word => {
@@ -62,7 +63,11 @@
     .map(link => ({ title: compact(link.textContent) || new URL(link.href).hostname, href: link.href }))
     .filter((link, index, links) => links.findIndex(other => other.href === link.href) === index);
   const passagesFrom = (container, selector) => [...container.querySelectorAll(selector)]
-    .map(element => ({ text: compact(element.textContent), links: linkedSources(element) }))
+    .map(element => {
+      const copy = element.cloneNode(true);
+      copy.querySelectorAll('sup').forEach(note => note.remove());
+      return { text: compact(copy.textContent), links: linkedSources(element) };
+    })
     .filter(passage => passage.text.length > 25);
 
   async function loadIndex() {
@@ -188,21 +193,20 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
-  function sourcedAnswer(entry, passage, related) {
+  function sourcedAnswer(entry, passage) {
+    lastSource = { entry, passage };
     const linkedSource = entry.kind === 'linked-source';
     const item = message(linkedSource ? 'Here is what the linked source says:' : 'Here is what Tanish’s published page says:');
     const quote = document.createElement('p');
     quote.className = 'site-guide__quote';
-    quote.textContent = excerpt(passage.text, 420);
+    quote.textContent = passage.text.length <= 500 ? passage.text : excerpt(passage.text, 420);
     item.append(quote);
+    const externalLink = [...passage.links, ...entry.links]
+      .find(link => new URL(link.href).origin !== root.origin && link.href !== entry.href);
     const sources = [
       { title: `Read: ${entry.title}`, summary: linkedSource ? 'Original source' : 'Tanish’s website', href: entry.href },
-      ...(passage.links.length ? passage.links : entry.links).slice(0, 2)
-        .map(link => ({ ...link, summary: passage.links.length ? 'Linked source' : 'Related link on this page' }))
+      ...(externalLink ? [{ ...externalLink, summary: 'Source linked from the page' }] : [])
     ];
-    if (related && related.href !== entry.href) {
-      sources.push({ title: `Related: ${related.title}`, summary: related.summary, href: related.href });
-    }
     sources.forEach(source => {
       const link = document.createElement('a');
       link.className = 'site-guide__result';
@@ -223,11 +227,26 @@
     posts: { title: 'Browse all posts', summary: 'Search and filter research notes, visits, and talks.', href: asset('Posts/index.html') }
   };
   const includesAny = (text, terms) => terms.some(term => text.includes(term));
+  const summaryFollowUp = query =>
+    /\b(summarize|summarise|sum up|shorter|briefly|in simpler words|in a nutshell)\b/u.test(query)
+    && /\b(it|that|this|your answer|the answer|what you said)\b/u.test(query);
+  const shortSummary = ({ entry, passage }) => {
+    if (entry.kind === 'post' && entry.summary) return entry.summary;
+    const sentences = passage.text.match(/[^.!?]+[.!?]+|[^.!?]+$/gu) || [];
+    const first = sentences.map(compact).filter(Boolean).slice(0, 2).join(' ');
+    return excerpt(first || entry.summary || passage.text, 260);
+  };
 
   async function answer(raw) {
     const query = compact(raw).toLowerCase();
     if (!query) return;
     message(raw, 'user');
+    if (lastSource && summaryFollowUp(query)) {
+      results(`In brief: ${shortSummary(lastSource)}`, [
+        { title: `Read: ${lastSource.entry.title}`, summary: 'Source for this summary', href: lastSource.entry.href }
+      ]);
+      return;
+    }
     if (includesAny(query, ['cv', 'resume', 'résumé', 'curriculum vitae'])) {
       results('Here is Tanish’s current CV.', [direct.cv]); return;
     }
@@ -281,7 +300,7 @@
         && queryWords.every(word => new Set(words(best.title)).has(word))
         ? passages[1] : null;
       if (match && match.coverage) {
-        sourcedAnswer(best, publicationSummary || match.passage, ranked[1]?.entry);
+        sourcedAnswer(best, publicationSummary || match.passage);
       } else {
         results('This is the closest page I found on Tanish’s website:', [best]);
       }
