@@ -13,7 +13,7 @@
   <meta property="og:description" content="Learning and verification for quantum information systems, from entanglement routing to certifying delivered pairs.">
   <meta property="og:url" content="https://www.tanishsinghrajpal.com/">
   <meta property="og:image" content="https://www.tanishsinghrajpal.com/social-card.png">
-  <meta property="og:image:alt" content="Tanish Singh Rajpal — reinforcement learning for quantum information systems">
+  <meta property="og:image:alt" content="Tanish Singh Rajpal — learning and verification for quantum information systems">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tanish Singh Rajpal | Research">
@@ -313,7 +313,6 @@
     .status,
     .meta,
     .button,
-    .metric-label,
     .note {
       font-family: "Space Grotesk", system-ui, sans-serif;
     }
@@ -685,32 +684,6 @@
       white-space: nowrap;
     }
 
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      margin: 28px 0;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .metric {
-      padding: 20px 16px 20px 0;
-      border-right: 1px solid var(--rule);
-    }
-
-    .metric:not(:first-child) { padding-left: 16px; }
-    .metric:last-child { border-right: 0; }
-
-    .metric-value {
-      display: block;
-      color: var(--navy-deep);
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .metric-label { color: var(--ink-soft); font-size: 13px; line-height: 1.42; }
-
     .note {
       padding: 14px 17px;
       border-left: 3px solid var(--teal);
@@ -919,9 +892,6 @@
       .hero h1 { max-width: 15ch; }
       .research-map { max-width: 650px; }
       .about-layout { grid-template-columns: minmax(0, 1.1fr) minmax(250px, 0.9fr); }
-      .metric-grid { grid-template-columns: 1fr 1fr; }
-      .metric:nth-child(2) { border-right: 0; }
-      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
     }
 
     @media (max-width: 820px) {
@@ -995,9 +965,6 @@
       .hero h1 { font-size: clamp(38px, 12vw, 50px); }
       .tagline { font-size: 18px; }
       .research-map { padding: 14px; }
-      .metric-grid { grid-template-columns: 1fr; }
-      .metric, .metric:not(:first-child) { padding: 13px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
-      .metric:last-child { border-bottom: 0; }
       .actions .button { width: 100%; justify-content: center; }
       .entry { margin-inline: 0; padding: 20px 0; }
       .credential-card { grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding: 16px; }
@@ -1167,27 +1134,6 @@
 
         <article class="entry" data-reveal>
           <div class="entry-head">
-            <h3>End-to-end routing for heterogeneous quantum networks <span class="status">In progress</span></h3>
-            <span class="meta">May–October 2026</span>
-          </div>
-          <p class="kicker">Independent Study, Information Networking Institute, CMU — Advisor: Prof. Michael Mattarock</p>
-
-          <p>My independent study now tests routing decisions against the state that actually reaches a request's endpoints. In NetSquid, each selected path generates Bell pairs, applies link and memory noise, performs entanglement swaps and delayed classical corrections, and measures the final pair's fidelity. This lets me compare a learned local policy with classical routing methods using the same requests, topology, noise model, fidelity threshold, and deadline.</p>
-
-          <p>I trained five reinforcement-learning policies on 20×20 grids, then evaluated the frozen policies across five unseen 20×20 topologies and five unseen 30×30 topologies without retraining. In the 30×30 transfer experiment, the learned policy reached an endpoint measurement for 99.4% of requests and achieved 61.2% request acceptance. The negative-log-fidelity baseline achieved 64.3% acceptance on the same evaluation. The learned policy transferred to a larger network with near-baseline performance; the classical baseline remained stronger on acceptance.</p>
-
-          <div class="metric-grid" aria-label="Local simulation results under an idealized hardware scenario">
-            <div class="metric"><span class="metric-value">5 × 5</span><span class="metric-label">trained policies × unseen topologies per grid size</span></div>
-            <div class="metric"><span class="metric-value">30 × 30</span><span class="metric-label">largest grid tested without retraining</span></div>
-            <div class="metric"><span class="metric-value">61.2%</span><span class="metric-label">learned-policy request acceptance at 30×30</span></div>
-            <div class="metric"><span class="metric-value">64.3%</span><span class="metric-label">classical baseline acceptance at 30×30</span></div>
-          </div>
-
-          <p class="note">These are local simulation results under an enhanced-memory, ideal Bell-state-measurement scenario; they are not hardware measurements. The model does not yet include network contention or throughput. Manuscript and reproducibility checks are in progress.</p>
-        </article>
-
-        <article class="entry" data-reveal>
-          <div class="entry-head">
             <h3>Differentiable quantum-chemical models (DFTBML3) <span class="status">In progress</span></h3>
           </div>
           <p class="kicker">Quantum chemistry independent study — Advisor: <a href="https://www.cmu.edu/chemistry/people/faculty/yaron.html" target="_blank" rel="noopener noreferrer">Prof. David Yaron</a>, CMU Chemistry</p>
@@ -1340,7 +1286,7 @@
         <div class="contact-card" data-reveal>
           <div>
             <h3>Let's talk about quantum information systems.</h3>
-            <p>I am applying to PhD programs for Fall 2027 and welcome conversations about quantum networking, reinforcement-learning-based error correction, and quantum algorithms.</p>
+            <p>I am applying to PhD programs for Fall 2027 and welcome conversations about reliable quantum networks, quantum error correction, and quantum algorithms for chemistry.</p>
           </div>
           <div class="actions">
             <a class="button primary" href="contact.html">Open reach-out page</a>
