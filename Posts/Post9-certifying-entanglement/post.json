@@ -1,5 +1,5 @@
 {
-  "title": "What can a quantum network promise about delivered entanglement?",
+  "title": "Certifying delivered entanglement",
   "date": "2026-10-12",
   "category": "Projects",
   "tags": [
@@ -7,7 +7,7 @@
     "Entanglement",
     "Research"
   ],
-  "summary": "A two-layer approach to guarding individual deliveries and certifying average fidelity, with open simulations, data checks, and hardware tests.",
+  "summary": "Per-pair guarantees need a model; hidden random tests can certify the average quality of kept pairs without one.",
   "cover": "images/two-layer-certification.png",
   "cover_alt": "Diagram of a model-based delivery guard, random tests, a model-free certificate, and feedback to the guard",
   "source_url": "https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery",

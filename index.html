@@ -747,6 +747,13 @@
     .project-visual figcaption { margin-top: 8px; color: var(--ink-soft); font-family: "Space Grotesk", system-ui, sans-serif; font-size: 12.5px; line-height: 1.5; }
     .project-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; }
 
+    .research-dek { color: var(--navy-deep); font-weight: 600; }
+    .research-numbers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 24px 0; border-block: 1px solid var(--rule); }
+    .research-numbers > div { padding: 17px 18px 16px 0; }
+    .research-numbers > div + div { border-left: 1px solid var(--rule); padding-left: 18px; }
+    .research-numbers dt { color: var(--navy-deep); font: 700 23px/1.2 "Space Grotesk", system-ui, sans-serif; }
+    .research-numbers dd { margin: 5px 0 0; color: var(--ink-soft); font: 13px/1.45 "Space Grotesk", system-ui, sans-serif; }
+
     @media (hover: hover) {
       .row:hover { transform: translateX(6px); }
     }
@@ -972,6 +979,9 @@
       .credential-card .credential-description { font-size: 16px; }
       .credential-meta { grid-column: 1 / -1; }
       .project-flow { grid-template-columns: 1fr; gap: 10px; }
+      .research-numbers { grid-template-columns: 1fr; }
+      .research-numbers > div, .research-numbers > div + div { border-left: 0; border-bottom: 1px solid var(--rule); padding: 12px 0; }
+      .research-numbers > div:last-child { border-bottom: 0; }
       .project-step { min-height: 0; }
       .project-step::after { display: none; }
     }
@@ -1123,8 +1133,14 @@
             <span class="meta">October 2026</span>
           </div>
           <p class="kicker">Independent Study, Information Networking Institute, CMU — with Prof. Michael Mattarock</p>
-          <p>A network cannot inspect an entangled pair after delivery without consuming it. I am studying which quality promises can still be made: guarantees for individual users require a model of the hardware, while a hidden random sample can certify the average fidelity of kept pairs without trusting that model. The project combines a model-based guard, a model-free certificate, and a check that raises the guard's safety margin when its model is too optimistic.</p>
-          <p>In pre-registered simulations of grids up to 30 × 30 nodes, none of 4.2 million pairs delivered <em>after an alarm</em> fell below the fidelity threshold. Re-analyses of public experimental data and two test-or-keep runs on one IBM quantum processor provide additional checks. These are simulated networks, not a demonstration on a distributed quantum network; the model-based guarantee depends on its stated assumptions, and detection can be slow.</p>
+          <p class="research-dek">Per-pair guarantees need a model; averages do not.</p>
+          <p>An entangled pair cannot be checked after delivery without consuming it. I study what can still be guaranteed: a model-based guard bounds individual users' risk under stated physical assumptions, while hidden random tests certify the average quality of kept pairs without trusting that model. The same tests raise the guard's safety margin when its predictions are too optimistic.</p>
+          <dl class="research-numbers" aria-label="Project results and evidence">
+            <div><dt>0 / 4.2M</dt><dd>below-threshold pairs after an alarm in simulated network deliveries</dd></div>
+            <div><dt>76 / 87</dt><dd>primary hypotheses passed; 11 failures reported</dd></div>
+            <div><dt>4 + 2</dt><dd>public experiments re-analysed and single-device IBM processor runs</dd></div>
+          </dl>
+          <p>The network results come from pre-registered simulations on grids up to 900 nodes; the hardware runs test components of the method, not distribution across a physical network. The manuscript remains in preparation.</p>
           <div class="project-links">
             <a class="pub-link" href="Posts/Post9-certifying-entanglement/index.html">Read the research update ↗</a>
             <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code and evidence ↗</a>
