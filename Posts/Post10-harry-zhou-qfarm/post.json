@@ -1,0 +1,17 @@
+{
+  "title": "Talking quantum error correction at Q-FARM",
+  "category": "Talks & learning",
+  "tags": [
+    "Q-FARM",
+    "Quantum error correction",
+    "Stanford"
+  ],
+  "summary": "Prof. Harry Zhou’s seminar connected high-rate quantum codes to hardware constraints, and I had the chance to share an early draft of my own work with him.",
+  "cover": "images/qfarm-zhou-seminar.png",
+  "cover_alt": "Speaker and audience at the Q-FARM seminar on ultra-high-rate quantum error correction",
+  "source_url": "https://qfarm.stanford.edu/events/q-farm-seminars/hengyun-harry-zhou-mit",
+  "source_label": "Q-FARM seminar page",
+  "date": "2026-10-13",
+  "published": true,
+  "location": "Silicon Valley"
+}

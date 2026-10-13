@@ -28,12 +28,18 @@
   if (search) {
     document.querySelector('.toolbar').hidden = false;
     const category = document.querySelector('#post-category');
+    const location = document.querySelector('#post-location');
     const cards = [...document.querySelectorAll('.post-card')];
+    [...new Set(cards.map(card => card.dataset.location).filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b))
+      .forEach(place => location.add(new Option(place, place)));
     function filterPosts() {
       const query = search.value.trim().toLocaleLowerCase();
       let count = 0;
       cards.forEach(card => {
-        const match = (!query || card.textContent.toLocaleLowerCase().includes(query)) && (!category.value || category.value === card.dataset.category);
+        const match = (!query || card.textContent.toLocaleLowerCase().includes(query))
+          && (!category.value || category.value === card.dataset.category)
+          && (!location.value || location.value === card.dataset.location);
         card.hidden = !match; if (match) count++;
       });
       document.querySelector('#post-count').textContent = `${count} ${count === 1 ? 'post' : 'posts'}`;
@@ -41,7 +47,8 @@
     }
     search.addEventListener('input', filterPosts);
     category.addEventListener('change', filterPosts);
-    document.querySelector('#clear-search').addEventListener('click', () => { search.value = ''; category.value = ''; filterPosts(); search.focus(); });
+    location.addEventListener('change', filterPosts);
+    document.querySelector('#clear-search').addEventListener('click', () => { search.value = ''; category.value = ''; location.value = ''; filterPosts(); search.focus(); });
     filterPosts();
   }
   const progress = document.querySelector('.progress');

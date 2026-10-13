@@ -20,3 +20,10 @@ h1,h2,h3{letter-spacing:-.015em;font-weight:600}
 @media(max-width:650px){.award-gallery{grid-template-columns:1fr}.award-gallery img{max-height:320px}}
 @media(max-width:560px){.prose p,.prose li{font-size:22px}.card-body p{font-size:20px}}
 @media print{.rail,.toolbar,.progress,.back,.next-links,footer{display:none}.shell{display:block}body{background:white;color:black}main{padding:0}.post-card{break-inside:avoid}.prose{max-width:none}}
+
+.prose .footnotes{margin:44px 0 0;border-top:1px solid var(--line);padding-top:14px;color:var(--soft)}.prose .footnotes li{font-size:18px;line-height:1.55}.prose sup{font-family:EB Garamond,Georgia,serif;font-size:.7em;vertical-align:super}
+.card-art img.seminar-art{object-fit:cover;object-position:20% center}
+.toolbar{grid-template-columns:minmax(0,1fr) minmax(150px,180px) minmax(150px,180px)}
+.meta .place{color:var(--teal);font-weight:600}
+@media(max-width:700px){.toolbar{grid-template-columns:1fr 1fr}.toolbar>div:first-child{grid-column:1/-1}}
+@media(max-width:560px){.toolbar{grid-template-columns:1fr}.toolbar>div:first-child{grid-column:auto}}

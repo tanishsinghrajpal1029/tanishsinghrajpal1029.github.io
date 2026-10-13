@@ -12,5 +12,6 @@
   "cover_alt": "Diagram of a model-based delivery guard, random tests, a model-free certificate, and feedback to the guard",
   "source_url": "https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery",
   "source_label": "Code and evidence",
-  "published": true
+  "published": true,
+  "location": "Location-independent"
 }
