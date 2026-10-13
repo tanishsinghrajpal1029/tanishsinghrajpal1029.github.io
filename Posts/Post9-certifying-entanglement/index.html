@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What can a quantum network promise about delivered entanglement? | Tanish Singh Rajpal</title>
+<meta name="description" content="A two-layer approach to guarding individual deliveries and certifying average fidelity, with open simulations, data checks, and hardware tests."><meta name="author" content="Tanish Singh Rajpal">
+<meta name="theme-color" content="#f2f0ea"><meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tanishsinghrajpal.com/Posts/Post9-certifying-entanglement/">
+<meta property="og:type" content="article"><meta property="og:title" content="What can a quantum network promise about delivered entanglement?">
+<meta property="og:description" content="A two-layer approach to guarding individual deliveries and certifying average fidelity, with open simulations, data checks, and hardware tests."><meta property="og:url" content="https://tanishsinghrajpal.com/Posts/Post9-certifying-entanglement/">
+<meta property="og:image" content="https://tanishsinghrajpal.com/Posts/Post9-certifying-entanglement/images/two-layer-certification.png"><meta name="twitter:card" content="summary_large_image">
+<script src="../assets/theme.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/posts.css"><script src="../assets/posts.js" defer></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232f756d'/%3E%3Ctext x='32' y='43' text-anchor='middle' fill='white' font-size='36' font-family='serif'%3ET%3C/text%3E%3C/svg%3E">
+</head><body>
+<a class="skip" href="#main-content">Skip to content</a>
+<progress class="progress" value="0" max="100" aria-label="Reading progress"></progress>
+<div class="shell"><nav class="rail" aria-label="Primary navigation"><div>
+<div class="rail-top"><a class="brand" href="../../index.html">Tanish Singh Rajpal<span>Quantum information<br>systems</span></a><button class="menu-button" aria-expanded="false" aria-controls="site-navigation" type="button">Menu</button></div>
+<ul class="nav-list" id="site-navigation"><li><a class="nav-link" href="../../index.html#about">About</a></li><li><a class="nav-link" href="../../index.html#research">Research</a></li><li><a class="nav-link" href="../../index.html#publications">Publications</a></li><li><a class="nav-link" href="../../index.html#projects">Selected projects</a></li><li><a class="nav-link" href="../../index.html#experience">Experience</a></li><li><a class="nav-link" href="../../index.html#recognition">Recognition</a></li>
+<li><a class="nav-link" aria-current="page" href="../index.html">Posts</a></li>
+<li><a class="nav-link" href="../../contact.html">Contact</a></li>
+<li><a class="nav-link utility" href="../../Tanish_Rajpal_CV.pdf" download>CV</a></li>
+<li><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button></li></ul></div>
+<div class="rail-foot">Research, visits,<br>and things I’m learning.</div></nav>
+<main id="main-content" class="article-main"><a class="back" href="../index.html">← All posts</a>
+<article><header class="article-header"><span class="eyebrow">Projects</span><h1>What can a quantum network promise about delivered entanglement?</h1><p class="summary">A two-layer approach to guarding individual deliveries and certifying average fidelity, with open simulations, data checks, and hardware tests.</p><div class="meta"><time datetime="2026-10-12">October 12, 2026</time><span>4 min read</span><span>Tanish Singh Rajpal</span></div><div class="tags"><span class="tag">Quantum networks</span><span class="tag">Entanglement</span><span class="tag">Research</span></div></header><figure class="cover"><a href="images/two-layer-certification.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size two-layer certification diagram"><img src="images/two-layer-certification.png" alt="Diagram of a model-based delivery guard, random tests, a model-free certificate, and feedback to the guard"></a><figcaption>Model-based guard, random tests, and feedback. <a href="images/two-layer-certification.png" target="_blank" rel="noopener noreferrer">View full-size diagram ↗</a></figcaption></figure>
+<div class="prose"><p>What can a quantum network promise about an entangled pair once it has delivered that pair to a user? Measuring the pair would consume it, so the network has to work from calibration and a limited number of sacrificial tests.</p>
+<p>In an independent study at Carnegie Mellon's Information Networking Institute with Prof. Michael Mattarock, I have been working on a distinction that changed how I think about this problem: a promise about <em>each</em> kept pair needs assumptions about the hardware; a promise about the <em>average</em> quality of kept pairs can be made from random tests without that model.</p>
+<h2>Two kinds of evidence</h2>
+<p>The first layer is a model-based guard. It uses calibration data to decide which pairs can be delivered while bounding a user's risk over time, provided the physical model and its declared margins hold. The second layer secretly selects a fraction of pairs for measurement. Those tests give a model-free lower bound on the average fidelity of the pairs the user kept. They also check whether the guard's predictions are too optimistic; after an alarm, the guard raises its safety margin using the test results.</p>
+<p>That separation matters. A certificate for an average is not a certificate for every pair. An alarm also cannot undo any low-quality deliveries that occurred before it, and small discrepancies may take many tests to detect.</p>
+<h2>What the current evidence shows</h2>
+<p>In pre-registered network simulations on grids up to 30 × 30 nodes, no pair among 4.2 million deliveries <em>after an alarm</em> was below the fidelity threshold. With the safety margin active from the start, the same study found none among 7.8 million deliveries, at a cost to throughput. Across the project's pre-registered primary hypotheses, 74 of 83 passed and nine failed; the failures remain in the public record.</p>
+<p>I also re-analyzed public data from three experimental groups and ran two test-or-keep experiments on a single IBM quantum processor. The first processor run's model check missed an injected degradation; a revised check in the second run raised an alarm. These runs test parts of the method, but they are not a demonstration of entanglement distribution across a physical network.</p>
+<h2>Status and materials</h2>
+<p>The manuscript is in preparation as of October 2026, and the proofs are undergoing human review. The simulation results depend on the stated noise and model assumptions, while the model-free certificate assumes trusted measurements and fresh, hidden test choices. The <a href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">code, pre-registrations, results, and evidence ledger</a> are public, with <a href="https://doi.org/10.5281/zenodo.23287414" target="_blank" rel="noopener noreferrer">versioned releases on Zenodo</a>.</p></div><div class="article-end"><div class="next-links"><a href="../index.html">← Back to posts</a><a href="../Post8-qsite-2026/index.html">Read next: Phase Hunter at Q-SITE Hacks →</a></div></div></article>
+<footer><span>Tanish Singh Rajpal</span><span><a href="../../index.html">Home</a> · <a href="../../contact.html">Reach out</a> · <a href="https://github.com/tanishsinghrajpal1029">GitHub</a></span></footer>
+</main></div></body></html>

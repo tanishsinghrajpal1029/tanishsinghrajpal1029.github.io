@@ -15,5 +15,7 @@ h1,h2,h3{letter-spacing:-.015em;font-weight:600}
 .photo-grid--contain img{object-fit:contain;background:var(--dim)}
 .photo-wide{margin:32px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--raised)}.photo-wide img{width:100%;max-height:680px;object-fit:contain;margin:0;border-radius:0;background:var(--dim)}.photo-wide figcaption{padding:10px 14px;color:var(--soft);font-size:16px;line-height:1.35}
 @media(max-width:700px){.photo-grid{grid-template-columns:1fr}.photo-grid img{height:auto;max-height:560px;object-fit:contain;background:var(--dim)}}
+.award-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 34px}.award-gallery figure{margin:0;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--raised)}.award-gallery a{display:block}.award-gallery img{width:100%;height:auto;aspect-ratio:5/4;object-fit:contain;margin:0;border-radius:0}.award-gallery figcaption{padding:10px 12px;font:12px/1.4 'Space Grotesk',system-ui,sans-serif;color:var(--soft)}
+@media(max-width:650px){.award-gallery{grid-template-columns:1fr}.award-gallery img{max-height:320px}}
 @media(max-width:560px){.prose p,.prose li{font-size:22px}.card-body p{font-size:20px}}
 @media print{.rail,.toolbar,.progress,.back,.next-links,footer{display:none}.shell{display:block}body{background:white;color:black}main{padding:0}.post-card{break-inside:avoid}.prose{max-width:none}}

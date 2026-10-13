@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tanish Singh Rajpal | Quantum Information Systems Research</title>
-  <meta name="description" content="Tanish Singh Rajpal is a Carnegie Mellon graduate student researching reinforcement learning for quantum networks, quantum information systems, and post-quantum security.">
+  <meta name="description" content="Tanish Singh Rajpal is a Carnegie Mellon graduate student studying entanglement routing, certification, and reliable quantum information systems.">
   <meta name="author" content="Tanish Singh Rajpal">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#f2f0ea">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tanish Singh Rajpal | Quantum Information Systems Research">
-  <meta property="og:description" content="Reinforcement learning and algorithmic methods for quantum networks, quantum computing, and secure systems.">
+  <meta property="og:description" content="Learning and verification for quantum information systems, from entanglement routing to certifying delivered pairs.">
   <meta property="og:url" content="https://www.tanishsinghrajpal.com/">
   <meta property="og:image" content="https://www.tanishsinghrajpal.com/social-card.png">
   <meta property="og:image:alt" content="Tanish Singh Rajpal — reinforcement learning for quantum information systems">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tanish Singh Rajpal | Research">
-  <meta name="twitter:description" content="Reinforcement learning for quantum information systems.">
+  <meta name="twitter:description" content="Learning and verification for quantum information systems.">
   <meta name="twitter:image" content="https://www.tanishsinghrajpal.com/social-card.png">
   <script>
     (() => {
@@ -1046,8 +1046,8 @@
       <header class="hero">
         <div data-reveal>
           <p class="eyebrow">PhD applicant for Fall 2027</p>
-          <h1>Reinforcement learning for quantum information systems.</h1>
-          <p class="tagline">I study how learned policies and algorithmic methods can solve structured decision problems in quantum networks and quantum computing—from entanglement routing and decoding to circuit design for chemistry and materials.</p>
+          <h1>Learning and verification for quantum information systems.</h1>
+          <p class="tagline">I study how to route entanglement and verify the quality of what a quantum network delivers. My broader interests include quantum error correction and algorithms for chemistry.</p>
           <div class="actions">
             <a class="button primary" href="Tanish_Rajpal_CV.pdf" download>Download CV</a>
             <a class="button" href="contact.html">Reach out</a>
@@ -1134,8 +1134,8 @@
         <div class="about-layout">
           <div class="about-copy" data-reveal>
             <p class="lede">I'm a graduate student at Carnegie Mellon University's Information Networking Institute, finishing an MS in Information Technology&nbsp;–&nbsp;Information Security in May 2027. My undergraduate degree is in Computer Engineering, where I graduated valedictorian with a 3.83/4.00 GPA.</p>
-            <p>My path into quantum computing came through networking and security — I got interested in quantum networks as a distributed-systems problem first, and found that the reinforcement-learning tools I already knew transferred more directly than I expected. That's shaped how I think about the field since: I'm less interested in quantum computing as a topic to study from the outside, and more interested in it as a set of concrete, structured decision problems — routing, decoding, circuit construction — that a learned policy can plausibly do better than a hand-derived heuristic, if the problem is posed carefully.</p>
-            <p>I'm currently applying to PhD programs for Fall 2027, looking for a research home where that approach — RL and algorithmic thinking applied to real quantum-hardware problems — has room to grow, whether that ends up being quantum error correction, quantum chemistry algorithms, or something that blends the two.</p>
+            <p>My path into quantum computing came through networking and security. I began by studying reinforcement-learning policies for routing entanglement, then found that routing performance alone does not tell a user whether the pair they receive is good. That question now drives my work on certifying delivered entanglement: I want algorithms to be useful, but I also want to know what evidence supports their promises.</p>
+            <p>I'm applying to PhD programs for Fall 2027 to work on reliable quantum information systems. I am especially interested in quantum error correction and quantum algorithms for chemistry, building on my work in learning, networks, and statistical verification.</p>
           </div>
           <figure class="profile-feature" data-reveal>
             <div class="photo-frame">
@@ -1149,6 +1149,21 @@
 
       <section class="content-section" id="research">
         <h2 class="section-label">Research</h2>
+
+        <article class="entry" data-reveal>
+          <div class="entry-head">
+            <h3>Certifying delivered entanglement <span class="status">Manuscript in preparation</span></h3>
+            <span class="meta">October 2026</span>
+          </div>
+          <p class="kicker">Independent Study, Information Networking Institute, CMU — with Prof. Michael Mattarock</p>
+          <p>A network cannot inspect an entangled pair after delivery without consuming it. I am studying which quality promises can still be made: guarantees for individual users require a model of the hardware, while a hidden random sample can certify the average fidelity of kept pairs without trusting that model. The project combines a model-based guard, a model-free certificate, and a check that raises the guard's safety margin when its model is too optimistic.</p>
+          <p>In pre-registered simulations of grids up to 30 × 30 nodes, none of 4.2 million pairs delivered <em>after an alarm</em> fell below the fidelity threshold. Re-analyses of public experimental data and two test-or-keep runs on one IBM quantum processor provide additional checks. These are simulated networks, not a demonstration on a distributed quantum network; the model-based guarantee depends on its stated assumptions, and detection can be slow.</p>
+          <div class="project-links">
+            <a class="pub-link" href="Posts/Post9-certifying-entanglement/index.html">Read the research update ↗</a>
+            <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code and evidence ↗</a>
+            <a class="pub-link" href="https://doi.org/10.5281/zenodo.23287414" target="_blank" rel="noopener noreferrer">Archived release ↗</a>
+          </div>
+        </article>
 
         <article class="entry" data-reveal>
           <div class="entry-head">
@@ -1287,6 +1302,7 @@
             <h3>Three podium finishes · Q-SITE Hacks 2026</h3>
             <div class="org">Team Popeyes · University of Toronto · Qiskit Fall Fest 2026</div>
             <p>Runner-up in the Quantum Coalition Open Challenge, Scientific Track; third place in the IBM Quantum Coding Challenge; and third place in the Overall Coding Challenge. Also placed fourth in the IonQ Championship, 0.44 points from third.</p>
+            <a class="pub-link" href="Posts/Post8-qsite-2026/index.html#awards">View certificates and results ↗</a>
           </div>
           <span class="meta">September 2026</span>
         </div>
@@ -1342,7 +1358,7 @@
 
       <footer>
         <span>© 2026 Tanish Singh Rajpal</span>
-        <span>San Francisco, CA · Last updated September 2026</span>
+        <span>San Francisco, CA · Last updated October 2026</span>
       </footer>
     </main>
   </div>
