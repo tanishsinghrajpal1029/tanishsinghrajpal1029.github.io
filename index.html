@@ -1129,22 +1129,22 @@
 
         <article class="entry" data-reveal>
           <div class="entry-head">
-            <h3>Certifying delivered entanglement <span class="status">Manuscript in preparation</span></h3>
+            <h3>What can a quantum network promise about the entangled pairs it delivers? <span class="status">Manuscript in preparation</span></h3>
             <span class="meta">October 2026</span>
           </div>
           <p class="kicker">Independent Study, Information Networking Institute, CMU — with Prof. Michael Mattarock</p>
-          <p class="research-dek">Per-pair guarantees need a model; averages do not.</p>
-          <p>An entangled pair cannot be checked after delivery without consuming it. I study what can still be guaranteed: a model-based guard bounds individual users' risk under stated physical assumptions, while hidden random tests certify the average quality of kept pairs without trusting that model. The same tests raise the guard's safety margin when its predictions are too optimistic.</p>
+          <p class="research-dek">A per-pair promise needs a trustworthy model; random tests can certify an average.</p>
+            <p>A user cannot inspect an entangled pair and still use it. I separate two promises: a guard limits a user's risk of receiving a below-threshold pair under explicit physical and calibration assumptions, while hidden random tests certify the average fidelity of the pairs kept. Those tests can also reveal model optimism and raise the guard's safety margin, although an alarm cannot protect pairs delivered before it.</p>
           <dl class="research-numbers" aria-label="Project results and evidence">
-            <div><dt>0 / 4.2M</dt><dd>below-threshold pairs after an alarm in simulated network deliveries</dd></div>
-            <div><dt>78 / 89</dt><dd>primary hypotheses passed; 11 failures reported</dd></div>
+            <div><dt>0 / 8.8M</dt><dd>bad guarded deliveries across 2D and 3D topology simulations; descriptive count</dd></div>
+            <div><dt>83 / 95</dt><dd>primary hypotheses passed; 12 failures reported</dd></div>
             <div><dt>5 + 2</dt><dd>experimental datasets re-analysed and single-device IBM processor runs</dd></div>
           </dl>
-          <p>In a pre-registered re-analysis of Oxford's 2022 device-independent QKD characterisation run, shot-by-shot data provided by the authors yielded a 95% anytime lower bound of 0.917 on the average fidelity of kept pairs under trusted nominal measurement settings. The device-independent bound was 0.837. The network results come from simulations on grids up to 900 nodes; the two IBM runs test components of the method on a single processor, not distribution across a physical network. The manuscript remains in preparation.</p>
+          <p>The topology studies cover square grids, a grid with diagonal links, and 3D cubes up to 1,000 nodes; their zero-bad-delivery count is a simulation result, not a hardware guarantee. A separate re-analysis of Oxford's 2022 two-node experiment gave a 95% anytime lower bound of 0.917 on kept-pair average fidelity under trusted measurement settings; the device-independent bound was 0.837. Two IBM runs tested components locally on one processor. The manuscript remains in preparation.</p>
           <div class="project-links">
             <a class="pub-link" href="Posts/Post9-certifying-entanglement/index.html">Read the research update ↗</a>
             <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code and evidence ↗</a>
-            <a class="pub-link" href="https://doi.org/10.5281/zenodo.23287414" target="_blank" rel="noopener noreferrer">Archived release ↗</a>
+            <a class="pub-link" href="https://doi.org/10.5281/zenodo.23468145" target="_blank" rel="noopener noreferrer">Archived release v0.9.1 ↗</a>
           </div>
         </article>
 
@@ -1180,6 +1180,13 @@
 
       <section class="content-section" id="publications">
         <h2 class="section-label">Publications</h2>
+
+        <h3 class="subheading">Manuscript in preparation</h3>
+        <article class="publication" data-reveal>
+          <p class="citation"><strong>Rajpal, T. S., &amp; Mattarock, M. (2026).</strong> <em>What can a quantum network promise about the entangled pairs it delivers?</em> Manuscript in preparation.</p>
+          <p>Develops conditional per-user guarantees for entanglement delivery, an anytime certificate for kept-pair average fidelity, and a test-driven check of model optimism. Evidence includes simulations, five experimental-data re-analyses, and two local IBM processor runs.</p>
+          <a class="pub-link" href="https://doi.org/10.5281/zenodo.23468145" target="_blank" rel="noopener noreferrer">Code, results, and audit trail (v0.9.1) ↗</a>
+        </article>
 
         <h3 class="subheading">Journal articles</h3>
         <article class="publication" data-reveal>
