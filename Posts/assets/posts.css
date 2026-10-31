@@ -27,3 +27,5 @@ h1,h2,h3{letter-spacing:-.015em;font-weight:600}
 .meta .place{color:var(--teal);font-weight:600}
 @media(max-width:700px){.toolbar{grid-template-columns:1fr 1fr}.toolbar>div:first-child{grid-column:1/-1}}
 @media(max-width:560px){.toolbar{grid-template-columns:1fr}.toolbar>div:first-child{grid-column:auto}}
+
+.card-art img.duquantum-art{object-fit:contain;background:var(--dim)}

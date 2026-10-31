@@ -1,0 +1,28 @@
+<p>Two awards, one very long night, and a reminder that a simulator can only tell you what its model knows.</p>
+<p>At DuQuantum at Duke University on October 24–25, Team Popeyes placed <strong>third in the Google Quantum AI Challenge, Standard Track</strong>, with a team score of <strong>1.2766 ± 0.0127</strong>. We also won <strong>MLH Best Use of Gemini</strong> for <em>Ask the Circuit</em>.</p>
+
+<h2>The challenge: exact states on noisy hardware</h2>
+<p>We had 24 hours to write a function that takes a requested Dicke state and the day's calibration data for Google's 105-qubit Willow processor, chooses physical qubits, and returns a circuit. A Dicke state shares a fixed number of excitations equally across all valid arrangements. The noiseless circuit had to prepare the target exactly, including its relative phases: an incorrect state scored zero.</p>
+<p>Exactness was only the starting point. Extra gates introduce more opportunities for noise, and Willow's grid constrains which qubits can interact directly. We needed short, exact circuits that fit the available connections and the calibration data, using the challenge's CZ and PhasedXZ gates.</p>
+
+<h2>My part of the 24 hours</h2>
+<ul>
+<li>I rebuilt the textbook construction to run directly on the grid, reducing reliance on compiler routing, and wrote the code that selects physical qubits from the day's error rates.</li>
+<li>I tested and merged four teammates' branches into one notebook, then presented the technical design and qubit selection to the judges.</li>
+<li>I built our <a href="https://tanishsinghrajpal.com/team-popeyes-hackduke-website/" target="_blank" rel="noopener noreferrer">project website</a>, an interactive explanation of Dicke states, Willow's connectivity, and our design choices.</li>
+</ul>
+
+<h2>The 5:30 a.m. lesson</h2>
+<p>The moment I remember most came around 5:30 a.m. The organizers' hardware rescoring contradicted our simulation: the circuit with fewer gates was not always the circuit with the higher score. We went back to the results, investigated the mismatch, and changed our final design.</p>
+<blockquote><p>Measure first, then trust the model.</p></blockquote>
+<p>Gate count mattered, but it did not capture every effect that mattered on the device. That experience made the limits of our noise model much more concrete. The benchmark tables in our repository describe local simulations; they should be read separately from the organizers' hardware evaluation and the team score on the certificate. The current project website also distinguishes later local revisions from the earlier notebook used in preliminary hardware testing.</p>
+
+<h2 id="awards">The awards</h2>
+<p>The Google Quantum AI certificate records third place in the Standard Track and the team score. The awards-stage photo above captures the MLH Best Use of Gemini announcement for Popeyes.</p>
+<figure class="photo-wide"><a href="duquantum-google-quantum-ai-certificate.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Tanish Singh Rajpal's DuQuantum Google Quantum AI Challenge certificate"><img src="images/google-quantum-ai-certificate.png" alt="Certificate naming Tanish Singh Rajpal, team score 1.2766 plus or minus 0.0127, third place in the DuQuantum Google Quantum AI Challenge Standard Track" loading="lazy"></a><figcaption>Google Quantum AI Challenge, Standard Track: third place. <a href="duquantum-google-quantum-ai-certificate.pdf" target="_blank" rel="noopener noreferrer">Open the original certificate (PDF) ↗</a></figcaption></figure>
+
+<h2>A good day to be Team Popeyes</h2>
+<p>Huge thanks to Richard Shan, Bryan Zhong, and Aanha Islam for an intense and fun day. Thank you to Duke Quantum Center, Major League Hacking, Eliott Rosenberg, Chloe Holzinger, and Google Quantum AI for a challenge that kept us thinking until the deadline.</p>
+<p>I am also grateful to Carnegie Mellon University's Information Networking Institute and Duke University for supporting me and helping me get there.</p>
+<figure class="photo-single"><a href="images/duke-campus.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Open the full Duke campus photograph"><img src="images/duke-campus.jpeg" alt="Duke's chapel and campus under a clear blue sky during the DuQuantum visit" loading="lazy"></a><figcaption>A little time on Duke's campus between the circuits and the deadline.</figcaption></figure>
+<p><a href="https://tanishsinghrajpal.com/team-popeyes-hackduke-website/" target="_blank" rel="noopener noreferrer">Explore the project website ↗</a> · <a href="https://github.com/tanishsinghrajpal1029/Team-Popeyes-DuHack-GoogleQAI" target="_blank" rel="noopener noreferrer">Read the code and technical write-up ↗</a></p>

@@ -1,0 +1,18 @@
+{
+  "title": "Exact states, noisy hardware: two awards at DuQuantum",
+  "date": "2026-10-30",
+  "category": "Projects",
+  "tags": [
+    "DuQuantum",
+    "Google Quantum AI",
+    "Dicke states",
+    "Gemini"
+  ],
+  "summary": "Third place in the Google Quantum AI Challenge, MLH Best Use of Gemini, and a 5:30 a.m. lesson in trusting hardware measurements.",
+  "cover": "images/team-popeyes-gemini-award.jpeg",
+  "cover_alt": "Team Popeyes and fellow attendees at the DuQuantum awards presentation, with Best use of Gemini and Popeyes displayed on screen",
+  "source_url": "https://github.com/tanishsinghrajpal1029/Team-Popeyes-DuHack-GoogleQAI",
+  "source_label": "Code and technical write-up",
+  "published": true,
+  "location": "Durham"
+}
