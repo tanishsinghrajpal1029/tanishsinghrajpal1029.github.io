@@ -24,7 +24,7 @@
     chemistry: {
       kind: 'Current research · CMU Chemistry',
       title: 'Learning chemical Hamiltonians',
-      description: 'With Prof. David Yaron, I work on differentiable tight-binding models that bring machine learning into quantum chemistry while keeping the physics in the model.',
+      description: 'With Prof. David Yaron, I am extending DFTBML to a split-valence basis in PyTorch, enforcing symmetry constraints and checking numerical behavior against quantum-chemistry reference implementations.',
       link: '#chemistry-research', label: 'Explore the chemistry work ↗', color: '#91ddc2'
     },
     algorithms: {
