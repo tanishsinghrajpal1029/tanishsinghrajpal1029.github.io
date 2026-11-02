@@ -1081,22 +1081,24 @@
 
         <article class="entry" id="entanglement-research" data-reveal>
           <div class="entry-head">
-            <h3>What can a quantum network promise about the entangled pairs it delivers? <span class="status">Manuscript in preparation</span></h3>
-            <span class="meta">October 2026</span>
+            <h3>What can a quantum network promise about the entangled pairs it delivers? <span class="status">Author review</span></h3>
+            <span class="meta">Updated November 2026</span>
           </div>
           <p class="kicker">Independent Study, Information Networking Institute, CMU — with Prof. Michael Mattarock</p>
-          <p class="research-dek">A per-pair promise needs a trustworthy model; random tests can certify an average.</p>
-            <p>A user cannot inspect an entangled pair and still use it. I separate two promises: a guard limits a user's risk of receiving a below-threshold pair under explicit physical and calibration assumptions, while hidden random tests certify the average fidelity of the pairs kept. Those tests can also reveal model optimism and raise the guard's safety margin, although an alarm cannot protect pairs delivered before it.</p>
+          <p class="research-dek">Per-pair promises need a model; hidden random tests can certify an average.</p>
+          <p>I separate two guarantees for delivered entanglement: a model-based guard bounds a user's risk of ever receiving a below-threshold pair under adaptive routing, while hidden random tests certify the average fidelity of the pairs kept. The guard needs a model and declared margins that cover the actual noise. The certificate needs trustworthy measurements and a fresh, hidden test choice; it does not certify any individual kept pair.</p>
           <dl class="research-numbers" aria-label="Project results and evidence">
-            <div><dt>0 / 8.8M</dt><dd>bad guarded deliveries across 2D and 3D topology simulations; descriptive count</dd></div>
-            <div><dt>83 / 95</dt><dd>primary hypotheses passed; 12 failures reported</dd></div>
-            <div><dt>5 + 2</dt><dd>experimental datasets re-analysed and single-device IBM processor runs</dd></div>
+            <div><dt>7 + 2</dt><dd>experimental-data re-analyses and local runs on one IBM processor</dd></div>
+            <div><dt>0.818</dt><dd>IonQ median certificate, compared with 0.817 predicted before reading the data</dd></div>
+            <div><dt>0 / 8.8M</dt><dd>bad guarded deliveries in topology simulations; descriptive count</dd></div>
           </dl>
-          <p>The topology studies cover square grids, a grid with diagonal links, and 3D cubes up to 1,000 nodes; their zero-bad-delivery count is a simulation result, not a hardware guarantee. A separate re-analysis of Oxford's 2022 two-node experiment gave a 95% anytime lower bound of 0.917 on kept-pair average fidelity under trusted measurement settings; the device-independent bound was 0.837. Two IBM runs tested components locally on one processor. The manuscript remains in preparation.</p>
+          <p>The seven re-analyses cover ICFO, USTC, Innsbruck, Delft, Oxford, Harvard, and IonQ. On IonQ's ion–silicon-vacancy link, a 3,000-pair record—about three seconds at 1.03 kHz—gave the predicted certificate. The test-or-keep splits were drawn retrospectively and the measurement settings were collected in blocks, so this did not test an online, time-ordered protocol. On Oxford's randomised test-or-keep record, the trusted-settings certificate ended at <strong>0.917</strong> and stayed above 0.9 after about 220,000 kept pairs; the separate device-independent bound was 0.837.</p>
+          <p>The topology simulations cover cubes up to 1,000 nodes, square grids up to 37 × 37, and a grid with diagonal links. No guarded delivery was bad across 36 conditions with 32 simulated networks each; networks, rather than individual deliveries, are the independent replication units. These are simulations with simplified physics, not physical network trials. The two IBM runs tested local components on one processor. An alarm cannot undo earlier deliveries, and protection against arbitrary model drift is not established.</p>
+          <p class="source">The manuscript is complete and under review by the authors before submission.</p>
           <div class="project-links">
-            <a class="pub-link" href="Posts/Post9-certifying-entanglement/index.html">Read the research update ↗</a>
-            <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code and evidence ↗</a>
-            <a class="pub-link" href="https://doi.org/10.5281/zenodo.23468145" target="_blank" rel="noopener noreferrer">Archived release v0.9.1 ↗</a>
+            <a class="pub-link" href="Posts/Post9-certifying-entanglement/index.html">Read the updated research note ↗</a>
+            <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code, pre-registrations, and evidence ↗</a>
+            <a class="pub-link" href="https://doi.org/10.5281/zenodo.23287414" target="_blank" rel="noopener noreferrer">Archived code releases ↗</a>
           </div>
         </article>
 
@@ -1133,11 +1135,11 @@
       <section class="content-section" id="publications">
         <h2 class="section-label">Publications</h2>
 
-        <h3 class="subheading">Manuscript in preparation</h3>
+        <h3 class="subheading">Manuscript in author review</h3>
         <article class="publication" data-reveal>
-          <p class="citation"><strong>Rajpal, T. S., &amp; Mattarock, M. (2026).</strong> <em>What can a quantum network promise about the entangled pairs it delivers?</em> Manuscript in preparation.</p>
-          <p>Develops conditional per-user guarantees for entanglement delivery, an anytime certificate for kept-pair average fidelity, and a test-driven check of model optimism. Evidence includes simulations, five experimental-data re-analyses, and two local IBM processor runs.</p>
-          <a class="pub-link" href="https://doi.org/10.5281/zenodo.23468145" target="_blank" rel="noopener noreferrer">Code, results, and audit trail (v0.9.1) ↗</a>
+          <p class="citation"><strong>Rajpal, T. S., &amp; Mattarock, M. (2026).</strong> <em>What can a quantum network promise about the entangled pairs it delivers?</em> Manuscript complete; author review before submission.</p>
+          <p>Develops conditional per-user guarantees for entanglement delivery, an anytime certificate for kept-pair average fidelity, and a test-driven check of model optimism. Evidence includes network simulations, seven experimental-data re-analyses, and two local runs on one IBM processor. The IonQ re-analysis compared a certificate predicted before reading the data (0.817) with the observed median (0.818).</p>
+          <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code, results, and audit trail ↗</a>
         </article>
 
         <h3 class="subheading">Journal articles</h3>
