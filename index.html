@@ -749,6 +749,31 @@
     .contact-card h3 { margin: 0 0 8px; font-size: 22px; }
     .contact-card p { margin: 0; color: var(--ink-soft); }
 
+    .document-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .document-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 26px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--paper-raised);
+    }
+    .document-card h3 { margin: 0 0 12px; font-size: 24px; }
+    .document-card p { color: var(--ink-soft); }
+    .document-card .actions { margin-top: auto; }
+    .document-card .document-preview { margin-top: 14px; font-size: 14px; }
+    .document-note { margin-top: 18px; color: var(--ink-soft); font-size: 13px; }
+    @media (max-width: 680px) {
+      .document-grid { grid-template-columns: 1fr; }
+      .document-card { padding: 22px; }
+      .document-card .actions { width: 100%; }
+    }
+
     footer {
       display: flex;
       flex-wrap: wrap;
@@ -879,6 +904,7 @@
           <li><a class="nav-link" href="#recognition" data-section="recognition">Recognition</a></li>
           <li><a class="nav-link" href="Posts/index.html">Posts</a></li>
           <li><a class="nav-link" href="contact.html" data-section="contact">Contact</a></li>
+          <li><a class="nav-link" href="#recruiters" data-section="recruiters">Résumé &amp; CV</a></li>
           <li><a class="nav-link utility" href="Tanish_Rajpal_CV.pdf" download>CV</a></li>
           <li><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark mode</span></button></li>
         </ul>
@@ -895,6 +921,7 @@
           <p class="tagline">I study how to trust a quantum network's output, and how to learn chemical Hamiltonians while preserving their physical structure.</p>
           <div class="actions">
             <a class="button primary" href="#research">Explore my research <span aria-hidden="true">&nbsp;↗</span></a>
+            <a class="button" href="Tanish_Rajpal_Resume.pdf" download>Download résumé <span aria-hidden="true">&nbsp;↓</span></a>
             <a class="button" href="Tanish_Rajpal_CV.pdf" download>Download CV <span aria-hidden="true">&nbsp;↓</span></a>
           </div>
           <p class="hero-contact">At Carnegie Mellon. <a href="contact.html">Let's talk about the work ↗</a></p>
@@ -1265,6 +1292,26 @@
         </div>
       </section>
 
+      <section class="content-section" id="recruiters" aria-labelledby="recruiters-title">
+        <h2 class="section-label" id="recruiters-title">For recruiters</h2>
+        <p>Download my résumé for an overview of my work, or my academic CV for the full research and publication record.</p>
+        <div class="document-grid" data-reveal>
+          <article class="document-card">
+            <h3>Industry résumé</h3>
+            <p>A one-page overview of my research, quantum computing projects, industry experience, and technical skills.</p>
+            <div class="actions"><a class="button primary" href="Tanish_Rajpal_Resume.pdf" download>Download résumé <span aria-hidden="true">&nbsp;↓</span></a></div>
+            <a class="document-preview sans" href="Tanish_Rajpal_Resume.pdf" target="_blank" rel="noopener noreferrer">View résumé PDF ↗</a>
+          </article>
+          <article class="document-card">
+            <h3>Academic CV</h3>
+            <p>My full academic background, research experience, publications, teaching, and selected projects.</p>
+            <div class="actions"><a class="button" href="Tanish_Rajpal_CV.pdf" download>Download academic CV <span aria-hidden="true">&nbsp;↓</span></a></div>
+            <a class="document-preview sans" href="Tanish_Rajpal_CV.pdf" target="_blank" rel="noopener noreferrer">View academic CV PDF ↗</a>
+          </article>
+        </div>
+        <p class="document-note sans">PDF downloads · Updated November 2, 2026 · <a href="contact.html">Get in touch ↗</a></p>
+      </section>
+
       <section class="content-section" id="contact">
         <h2 class="section-label">Contact</h2>
         <div class="contact-card" data-reveal>
@@ -1283,6 +1330,8 @@
           <a href="https://www.linkedin.com/in/tanish-singh-rajpal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span aria-hidden="true"> · </span>
           <a href="Tanish_Rajpal_CV.pdf" download>CV</a>
+          <span aria-hidden="true"> · </span>
+          <a href="Tanish_Rajpal_Resume.pdf" download>Résumé</a>
         </p>
       </section>
 
@@ -1360,5 +1409,5 @@
     });
 
   </script>
-<script src="assets/site-assistant.js?v=2026-10-13-guide2" defer></script></body>
+<script src="assets/site-assistant.js?v=2026-11-02-resume" defer></script></body>
 </html>

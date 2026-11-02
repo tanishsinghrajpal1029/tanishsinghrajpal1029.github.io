@@ -222,7 +222,8 @@
   }
 
   const direct = {
-    cv: { title: 'Download CV', summary: 'The current PDF on this website.', href: asset('Tanish_Rajpal_CV.pdf') },
+    resume: { title: 'Download résumé', summary: 'One-page résumé for recruiters and industry opportunities.', href: asset('Tanish_Rajpal_Resume.pdf') },
+    cv: { title: 'Download academic CV', summary: 'Full research experience, publications, and academic background.', href: asset('Tanish_Rajpal_CV.pdf') },
     contact: { title: 'Reach out to Tanish', summary: 'Contact details and ways to start a conversation.', href: asset('contact.html') },
     posts: { title: 'Browse all posts', summary: 'Search and filter research notes, visits, and talks.', href: asset('Posts/index.html') }
   };
@@ -247,8 +248,11 @@
       ]);
       return;
     }
-    if (includesAny(query, ['cv', 'resume', 'résumé', 'curriculum vitae'])) {
-      results('Here is Tanish’s current CV.', [direct.cv]); return;
+    const wantsResume = includesAny(query, ['resume', 'résumé', 'resumé', 'recruiter']);
+    const wantsCV = /\bcv\b/u.test(query) || query.includes('curriculum vitae');
+    if (wantsResume || wantsCV) {
+      const documents = wantsResume && wantsCV ? [direct.resume, direct.cv] : [wantsResume ? direct.resume : direct.cv];
+      results(wantsResume && wantsCV ? 'Here are Tanish’s résumé and academic CV.' : wantsResume ? 'Here is Tanish’s one-page résumé.' : 'Here is Tanish’s academic CV.', documents); return;
     }
     if (includesAny(query, ['contact', 'email', 'reach out', 'get in touch'])) {
       results('You can contact Tanish here.', [direct.contact]); return;
@@ -309,7 +313,7 @@
     }
   }
 
-  const suggestions = ['Current research', 'Latest posts', 'CV', 'Contact'];
+  const suggestions = ['Current research', 'Latest posts', 'Résumé', 'CV', 'Contact'];
   suggestions.forEach(text => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -325,7 +329,7 @@
     launcher.setAttribute('aria-label', open ? 'Hide website guide' : 'Open website guide');
     if (open) {
       if (!initialized) {
-        message('Hi! I can help you find Tanish’s research, recent posts, CV, or contact page. What are you looking for?');
+        message('Hi! I can help you find Tanish’s research, recent posts, résumé, academic CV, or contact page. What are you looking for?');
         initialized = true;
       }
       input.focus();
