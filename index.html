@@ -35,7 +35,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=onkar-restored">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Noto+Serif+Gurmukhi:wght@500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
@@ -141,6 +141,20 @@
     }
 
     p { max-width: 72ch; margin: 0 0 20px; }
+
+    .site-invocation {
+      max-width: none;
+      margin: 0;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-raised);
+      color: var(--teal);
+      font-family: "Noto Serif Gurmukhi", "Gurmukhi MN", serif;
+      font-size: clamp(21px, 3.8vw, 26px);
+      font-weight: 500;
+      line-height: 1.6;
+      text-align: center;
+    }
 
     .shell {
       display: grid;
@@ -891,6 +905,8 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <p class="site-invocation" lang="pa-Guru">ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥</p>
 
   <div class="shell">
     <nav class="rail" aria-label="Primary navigation">
