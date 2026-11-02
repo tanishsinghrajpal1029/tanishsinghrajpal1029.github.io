@@ -1,0 +1,33 @@
+<p><em>The Last Call</em>, my quantum horror game entered as Team Popeyes, received the <strong>global Best of Quantum Playground specialty award</strong> at the Qollab × IonQ Global Quantum Hackathon. At the Carnegie Mellon node, it also placed <strong>first among 12 projects</strong> and received <strong>Most Novel/Creative</strong> and <strong>Best Documentation</strong>.</p>
+<p>The build weekend ran October 9–11, 2026. Qollab announced the global specialty awards on October 28. Quantum Playground recognizes playful and unexpected quantum projects; this is the global theme award, alongside the separate CMU node results.</p>
+
+<h2 id="awards">The results</h2>
+<ul>
+<li><strong>Global specialty award:</strong> Best of Quantum Playground.</li>
+<li><strong>CMU node:</strong> first place, among 12 projects.</li>
+<li><strong>CMU node specialty awards:</strong> Most Novel/Creative and Best Documentation.</li>
+</ul>
+<p><a href="https://x.com/qollabxyz/status/2115428370032767024" target="_blank" rel="noopener noreferrer">Qollab's global specialty-award announcement ↗</a> · <a href="https://qollab.xyz/u/tanishsinghrajpal/the-last-call" target="_blank" rel="noopener noreferrer">The project on Qollab ↗</a></p>
+
+<h2>One call, two doors</h2>
+<p>Someone is outside, and the intercom shows the call arriving at two entrances. Is it Mira, or something copying her voice? Which door should you open? There are only a few calls left, and the actions that answer one question can destroy the evidence needed for the other.</p>
+<p>The game's central mechanic is the trade-off between interference and which-path information. It is playable on a regular screen and in phone or tablet AR, where the house becomes part of the room around you.</p>
+<ul>
+<li><strong>Listen:</strong> recombine the two door channels and turn a phase dial. The interference pattern helps distinguish the callers.</li>
+<li><strong>Trace:</strong> record which door the call came through. That record removes the interference used to identify the caller.</li>
+<li><strong>Erase:</strong> read the record in a complementary basis, then sort the results by its + or − outcome. Interference appears in the two conditional subsets; the pooled data remain flat.</li>
+</ul>
+<figure class="photo-wide"><a href="images/listen-trace-erase.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Listen, Trace, and Erase circuit diagram"><img src="images/listen-trace-erase.png" alt="Diagram explaining the game's quantum circuits for listening, recording which-path information, and sorting quantum-eraser outcomes" loading="lazy"></a><figcaption>The physics behind the choices: interference, which-path information, and the quantum eraser.</figcaption></figure>
+
+<h2>Building the experience</h2>
+<p>I built the game's quantum circuits and evidence model alongside its intercom interface, story, and AR experience. The circuits are implemented with Qiskit, and the browser model was checked against a NumPy density-matrix reference. A spoken walkthrough, captions, keyboard controls, and a Gentle mode make the game easier to approach.</p>
+<p>The AR version has documented device checks on Android with WebXR and on an iPad with look-around tracking. The look-around mode follows device rotation; the project also includes a printed-marker mode for position tracking.</p>
+<figure class="photo-wide"><a href="images/ar-device-checks.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open screenshots from Android and iPad device checks"><img src="images/ar-device-checks.jpg" alt="The Last Call running on an Android phone with WebXR and on an iPad with look-around AR" loading="lazy"></a><figcaption>Device checks: Android WebXR on the left, iPad look-around AR on the right.</figcaption></figure>
+
+<h2>What runs the quantum part?</h2>
+<p>The browser's Ideal model samples exact circuit probabilities, while its Illustrative noise option uses the project's own noise channel. The published Qollab game was tested on the built-in simulator. A separate <a href="https://qollab.xyz/u/tanishsinghrajpal/the-last-call-ionq-run" target="_blank" rel="noopener noreferrer">IonQ companion project</a> was run on the IonQ simulator with the Aria 1 noise model. Those documented IonQ results are simulator runs.</p>
+<p>The circuits are deliberately small. The point is to make the information trade-off something a player must use to decide what to do next. The source repository includes the circuits, validation records, device checks, and attribution notes.</p>
+
+<h2>Play or explore the code</h2>
+<p>Thank you to Qollab, IonQ, and the Carnegie Mellon node organizers and judges for making the event possible and recognizing the project.</p>
+<p><a href="https://tanishsinghrajpal.com/the-last-call/" target="_blank" rel="noopener noreferrer">Play The Last Call ↗</a> · <a href="https://github.com/tanishsinghrajpal1029/the-last-call" target="_blank" rel="noopener noreferrer">Source, physics, and validation ↗</a></p>

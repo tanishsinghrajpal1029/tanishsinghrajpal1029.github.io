@@ -1,0 +1,18 @@
+{
+  "title": "The Last Call wins Best of Quantum Playground",
+  "date": "2026-11-02",
+  "category": "Projects",
+  "tags": [
+    "Qollab × IonQ",
+    "Quantum interference",
+    "AR",
+    "Quantum Playground"
+  ],
+  "summary": "An AR horror game about interference and which-path information, recognized with a global specialty award at Qollab × IonQ and first place at the CMU node.",
+  "cover": "images/the-last-call-gameplay.png",
+  "cover_alt": "The Last Call game showing two door-camera feeds, an interference dial, and evidence for identifying the caller",
+  "source_url": "https://github.com/tanishsinghrajpal1029/the-last-call",
+  "source_label": "Source, physics, and validation",
+  "published": true,
+  "location": "Online"
+}
