@@ -1,0 +1,2 @@
+/* Keep the original dark/light themes on a plain background. */
+body::before { content: none; }
