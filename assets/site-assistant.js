@@ -5,7 +5,7 @@
   const asset = path => new URL(path, root).href;
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
-  stylesheet.href = asset('assets/site-assistant.css?v=2');
+  stylesheet.href = asset('assets/site-assistant.css?v=2026-11-02-compact');
   document.head.append(stylesheet);
 
   const guide = document.createElement('aside');

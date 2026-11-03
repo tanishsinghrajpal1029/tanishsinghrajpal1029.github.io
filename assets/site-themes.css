@@ -1,0 +1,54 @@
+/* The selected deep-teal palette, with an optional light companion. */
+:root[data-palette="deep-teal"] {
+ color-scheme: dark;
+ --paper:#040d12; --paper-raised:#183d3d; --paper-dim:#0d2529;
+ --ink:#edf3ef; --ink-soft:#93b1a6; --navy:#5c8374; --navy-deep:#edf3ef;
+ --teal:#93b1a6; --teal-soft:#183d3d; --line:#31534e; --rule:#5c8374; --on-accent:#040d12;
+}
+:root[data-palette="light-sage"] {
+ color-scheme: light;
+ --paper:#edf3ef; --paper-raised:#fafcf9; --paper-dim:#dce6df;
+ --ink:#040d12; --ink-soft:#355a50; --navy:#5c8374; --navy-deep:#183d3d;
+ --teal:#183d3d; --teal-soft:#dce6df; --line:#c1d1c8; --rule:#93b1a6; --on-accent:#edf3ef;
+}
+:root[data-palette] { --raised:var(--paper-raised); --dim:var(--paper-dim); --soft:var(--ink-soft); --heading:var(--navy-deep); --wash:var(--teal-soft); }
+:root[data-palette] body::before { content:none; }
+:root[data-palette] .rail { background:color-mix(in srgb,var(--paper) 97%,transparent); }
+:root[data-palette] .hero::after { background:radial-gradient(ellipse,color-mix(in srgb,var(--teal) 12%,transparent),transparent 68%); }
+:root[data-palette] .quantum-hero .button.primary { background:var(--teal); border-color:var(--teal); color:var(--on-accent); }
+:root[data-palette] .quantum-hero .button.primary:hover { background:var(--navy-deep); border-color:var(--navy-deep); color:var(--paper); }
+:root[data-palette] .research-atom { background:var(--paper-raised); color:var(--ink); border-color:var(--rule); box-shadow:0 20px 65px #0000000a; }
+:root[data-palette] .research-atom::before { background:radial-gradient(ellipse,color-mix(in srgb,var(--teal) 6%,transparent),transparent 65%); }
+:root[data-palette] .research-atom h2 { color:var(--navy-deep); }
+:root[data-palette] .atom-card-header p, :root[data-palette] .atom-hint { color:var(--ink-soft); }
+:root[data-palette] .atom-card-header span { color:var(--teal); border-color:var(--line); }
+:root[data-palette] .atom-node .node-label { fill:var(--ink-soft); }
+:root[data-palette] .atom-node:hover .node-label, :root[data-palette] .atom-node[aria-pressed="true"] .node-label, :root[data-palette] .atom-node:focus-visible .node-label { fill:var(--navy-deep); }
+:root[data-palette] .atom-node .electron-ring { fill:var(--paper-raised); }
+:root[data-palette] .atom-orbit, :root[data-palette] .atom-orbit.warm, :root[data-palette] .atom-orbit.violet { stroke:color-mix(in srgb,var(--teal) 35%,transparent); }
+:root[data-palette] .atom-trace { stroke:var(--teal); }
+:root[data-palette] .atom-node { --node-color:var(--teal) !important; }
+:root[data-palette] #atom-proton stop:first-child, :root[data-palette] #atom-neutron stop:first-child, :root[data-palette] #atom-cool stop:first-child { stop-color:#93b1a6; }
+:root[data-palette] #atom-proton stop:last-child, :root[data-palette] #atom-neutron stop:last-child { stop-color:#5c8374; }
+:root[data-palette] #atom-cool stop:last-child { stop-color:#183d3d; }
+:root[data-palette] .highlight--award { border-top-color:var(--teal); }
+:root[data-palette] .highlight--award .highlight-kind { color:var(--teal); }
+:root[data-palette] .atom-core rect { fill:var(--paper-raised); }
+:root[data-palette] .atom-core .core-label { fill:var(--navy-deep); }
+:root[data-palette] .atom-core .core-label-small { fill:var(--ink-soft); }
+:root[data-palette] .atom-core .core-rim { stroke:var(--teal); }
+:root[data-palette] .atom-detail { background:var(--paper); border-color:var(--line); border-left-color:var(--teal); }
+:root[data-palette] .atom-detail .atom-kind, :root[data-palette] .atom-detail .atom-destination { color:var(--teal); }
+:root[data-palette] .atom-detail h3 { color:var(--navy-deep); }
+:root[data-palette] .atom-detail .atom-description { color:var(--ink-soft); }
+:root[data-palette] .fact, :root[data-palette] .project-step { background:var(--paper-raised); }
+:root[data-palette] .entry:hover { background:var(--paper-raised); }
+:root[data-palette] .site-guide__message--user, :root[data-palette] .site-guide__form button { background:var(--teal); color:var(--on-accent); }
+:root[data-palette] .site-guide__form button:hover { background:var(--navy-deep); color:var(--paper); }
+.theme-picker { display:flex; align-items:center; gap:8px; width:100%; margin-top:9px; padding:8px 9px; border:1px solid var(--rule); border-radius:6px; background:var(--paper-raised); font:12px/1.4 'Space Grotesk',system-ui,sans-serif; }
+.theme-picker::before { content:''; width:9px; height:9px; flex:none; border-radius:50%; background:var(--teal); }
+.theme-select { min-width:0; width:100%; min-height:28px; border:0; background:transparent; color:var(--navy-deep); font:inherit; cursor:pointer; }
+.theme-select option { background:var(--paper-raised); color:var(--ink); }
+.theme-select:focus-visible { outline:2px solid var(--teal); outline-offset:3px; }
+@media(max-width:820px) { .theme-picker { margin-top:0; padding:6px 8px; min-height:40px; } }
+@media print { .theme-picker { display:none; } }

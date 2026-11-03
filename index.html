@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-palette="deep-teal">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -911,6 +911,9 @@
   <link rel="stylesheet" href="assets/research-atom.css?v=2026-10-30">
   <script src="assets/research-atom.js?v=2026-11-02-dftbml" defer></script>
 <link rel="stylesheet" href="assets/brand.css?v=onkar-restored">
+<link rel="stylesheet" href="assets/home-refresh.css?v=2026-11-02">
+<link rel="stylesheet" href="assets/site-themes.css?v=2026-11-02-deep-teal">
+<script src="assets/site-themes.js?v=2026-11-02-deep-teal"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -950,8 +953,7 @@
           <p class="tagline">I study how to trust a quantum network's output, and how to learn chemical Hamiltonians while preserving their physical structure.</p>
           <div class="actions">
             <a class="button primary" href="#research">Explore my research <span aria-hidden="true">&nbsp;↗</span></a>
-            <a class="button" href="Tanish_Rajpal_Resume.pdf" download>Download résumé <span aria-hidden="true">&nbsp;↓</span></a>
-            <a class="button" href="Tanish_Rajpal_CV.pdf" download>Download CV <span aria-hidden="true">&nbsp;↓</span></a>
+            <a class="button" href="#recruiters">Résumé &amp; CV <span aria-hidden="true">&nbsp;↓</span></a>
           </div>
           <p class="hero-contact">At Carnegie Mellon. <a href="contact.html">Let's talk about the work ↗</a></p>
           <div class="hero-research-links" aria-label="Research directions">
@@ -1058,6 +1060,30 @@
         </section>
       </header>
 
+      <aside class="highlights" aria-labelledby="highlights-title">
+        <h2 id="highlights-title">Selected highlights</h2>
+        <div class="highlights-grid">
+          <a class="highlight highlight--award" href="Posts/Post13-qollab-ionq-last-call/index.html#certificate">
+            <span class="highlight-kind">Global award · Qollab × IonQ</span>
+            <strong>Best of Quantum Playground</strong>
+            <span class="highlight-note">The Last Call · global-round finalist</span>
+            <span class="highlight-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="highlight" href="#chemistry-research">
+            <span class="highlight-kind">CMU Chemistry · DFTBML</span>
+            <strong>Learning chemical Hamiltonians</strong>
+            <span class="highlight-note">Independent study with Prof. David Yaron</span>
+            <span class="highlight-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="highlight" href="#entanglement-research">
+            <span class="highlight-kind">Manuscript · author review</span>
+            <strong>Certifying delivered entanglement</strong>
+            <span class="highlight-note">Statistical evidence for quantum networks</span>
+            <span class="highlight-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </aside>
+
       <section class="content-section" id="about">
         <h2 class="section-label">About</h2>
         <div class="about-layout">
@@ -1079,13 +1105,39 @@
       <section class="content-section" id="research">
         <h2 class="section-label">Research</h2>
 
-        <article class="entry" id="entanglement-research" data-reveal>
-          <div class="entry-head">
-            <h3>What can a quantum network promise about the entangled pairs it delivers? <span class="status">Author review</span></h3>
-            <span class="meta">Updated November 2026</span>
+        <article class="entry research-card" id="entanglement-research" data-reveal>
+          <div class="research-overview">
+            <figure class="research-visual"><svg class="diagram-svg" viewBox="0 0 400 270" role="img" aria-labelledby="delivery-visual-title delivery-visual-desc">
+<title id="delivery-visual-title">Two guarantees for delivered entanglement</title>
+<desc id="delivery-visual-desc">A model-based guard supports conditional per-user protection. Hidden random tests of delivered pairs certify the kept-pair average, not any individual pair.</desc>
+<path class="di-connector" d="M124 80H160M280 80H314M220 110V148"/>
+<path class="di-arrow" d="m153 76 7 4-7 4m154-8 7 4-7 4m-98 61 4 7 4-7"/>
+<rect class="di-surface" x="10" y="47" width="114" height="65" rx="10"/>
+<text class="di-title" x="67" y="74" text-anchor="middle">Model guard</text><text class="di-label" x="67" y="94" text-anchor="middle">conditional risk bound</text>
+<rect class="di-surface di-accent-border" x="160" y="47" width="120" height="65" rx="10"/>
+<circle class="di-dot" cx="203" cy="70" r="5"/><circle class="di-dot" cx="237" cy="70" r="5"/><path class="di-accent-line" d="M208 70h24"/>
+<text class="di-title" x="220" y="96" text-anchor="middle">Delivered pairs</text>
+<text class="di-title" x="353" y="83" text-anchor="middle">Keep</text>
+<rect class="di-surface" x="126" y="151" width="188" height="48" rx="10"/>
+<text class="di-title" x="220" y="180" text-anchor="middle">Hidden random tests</text>
+<path class="di-connector" d="M220 200v19"/><path class="di-arrow" d="m216 212 4 7 4-7"/>
+<text class="di-emphasis" x="220" y="243" text-anchor="middle">Certify the kept-pair average</text>
+<text class="di-overline" x="12" y="20">DELIVERY + EVIDENCE</text>
+</svg><figcaption>Model-based protection and measurement-based evidence.</figcaption></figure>
+            <div class="research-copy">
+              <div class="research-meta"><span>01 / Quantum information</span><span class="status">Author review</span></div>
+              <h3>Certifying delivered entanglement</h3>
+              <p class="kicker">Independent Study, Information Networking Institute, CMU — with Prof. Michael Mattarock</p>
+              <p class="research-summary">I study what a quantum network can promise about the entanglement it delivers. A model-based guard supports per-user risk bounds; hidden random tests certify the average fidelity of kept pairs.</p>
+              <div class="research-result"><strong>0.818</strong><span>IonQ median certificate vs. 0.817 predicted</span></div>
+              <p class="research-scope">Retrospective test splits; no certificate for an individual pair.</p>
+              <p class="research-date">Updated November 2026</p>
+            </div>
           </div>
-          <p class="kicker">Independent Study, Information Networking Institute, CMU — with Prof. Michael Mattarock</p>
-          <p class="research-dek">Per-pair promises need a model; hidden random tests can certify an average.</p>
+          <details class="research-details">
+            <summary>Read more: methods, evidence &amp; limitations</summary>
+            <div class="research-detail-body"><p class="research-full-title"><em>What can a quantum network promise about the entangled pairs it delivers?</em></p>
+<p class="research-dek">Per-pair promises need a model; hidden random tests can certify an average.</p>
           <p>I separate two guarantees for delivered entanglement: a model-based guard bounds a user's risk of ever receiving a below-threshold pair under adaptive routing, while hidden random tests certify the average fidelity of the pairs kept. The guard needs a model and declared margins that cover the actual noise. The certificate needs trustworthy measurements and a fresh, hidden test choice; it does not certify any individual kept pair.</p>
           <dl class="research-numbers" aria-label="Project results and evidence">
             <div><dt>7 + 2</dt><dd>experimental-data re-analyses and local runs on one IBM processor</dd></div>
@@ -1099,16 +1151,41 @@
             <a class="pub-link" href="Posts/Post9-certifying-entanglement/index.html">Read the updated research note ↗</a>
             <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code, pre-registrations, and evidence ↗</a>
             <a class="pub-link" href="https://doi.org/10.5281/zenodo.23287414" target="_blank" rel="noopener noreferrer">Archived code releases ↗</a>
-          </div>
+          </div></div>
+          </details>
         </article>
 
-        <article class="entry" id="chemistry-research" data-reveal>
-          <div class="entry-head">
-            <h3>Differentiable quantum-chemical models (DFTBML) <span class="status">In progress</span></h3>
-            <span class="meta">September 2026–present</span>
+        <article class="entry research-card" id="chemistry-research" data-reveal>
+          <div class="research-overview">
+            <figure class="research-visual"><svg class="diagram-svg" viewBox="0 0 400 270" role="img" aria-labelledby="chemistry-visual-title chemistry-visual-desc">
+<title id="chemistry-visual-title">Learning chemical Hamiltonians with physical structure</title>
+<desc id="chemistry-visual-desc">A schematic Hamiltonian matrix and the expansion from 75 to 266 learned parameters under symmetry constraints. This is a diagram of the method, not a computed molecular result.</desc>
+<text class="di-overline" x="12" y="20">PHYSICS-GUIDED LEARNING</text>
+<path class="di-bracket" d="M100 52H86v132h14M230 52h14v132h-14"/>
+<g class="di-matrix">
+<rect x="105" y="61" width="24" height="24" rx="4"/><rect x="137" y="61" width="24" height="24" rx="4" opacity=".3"/><rect x="169" y="61" width="24" height="24" rx="4" opacity=".55"/><rect x="201" y="61" width="24" height="24" rx="4" opacity=".2"/>
+<rect x="105" y="93" width="24" height="24" rx="4" opacity=".3"/><rect x="137" y="93" width="24" height="24" rx="4"/><rect x="169" y="93" width="24" height="24" rx="4" opacity=".2"/><rect x="201" y="93" width="24" height="24" rx="4" opacity=".55"/>
+<rect x="105" y="125" width="24" height="24" rx="4" opacity=".55"/><rect x="137" y="125" width="24" height="24" rx="4" opacity=".2"/><rect x="169" y="125" width="24" height="24" rx="4"/><rect x="201" y="125" width="24" height="24" rx="4" opacity=".3"/>
+<rect x="105" y="157" width="24" height="24" rx="4" opacity=".2"/><rect x="137" y="157" width="24" height="24" rx="4" opacity=".55"/><rect x="169" y="157" width="24" height="24" rx="4" opacity=".3"/><rect x="201" y="157" width="24" height="24" rx="4"/>
+</g>
+<text class="di-math" x="275" y="129">H<tspan dy="8" font-size="19">θ</tspan></text>
+<path class="di-connector" d="M67 211h266"/>
+<text class="di-emphasis" x="200" y="239" text-anchor="middle">75 → 266 parameters</text>
+<text class="di-label" x="200" y="260" text-anchor="middle">basis expansion · symmetry constraints</text>
+</svg><figcaption>A larger basis, with physical structure built into the model.</figcaption></figure>
+            <div class="research-copy">
+              <div class="research-meta"><span>02 / Quantum chemistry</span><span class="status">In progress</span></div>
+              <h3>Learning chemical Hamiltonians</h3>
+              <p class="kicker">Quantum chemistry independent study — Advisor: <a href="https://www.cmu.edu/chemistry/people/faculty/yaron.html" target="_blank" rel="noopener noreferrer">Prof. David Yaron</a>, CMU Chemistry</p>
+              <p class="research-summary">I am extending DFTBML to a split-valence basis while preserving its physical structure. My work develops trainable Hamiltonian components and tests the symmetry constraints that tie them together.</p>
+              <div class="research-result"><strong>75 → 266</strong><span>Learned parameters under symmetry constraints</span></div>
+              <p class="research-scope">Independent study with Prof. David Yaron, CMU Chemistry.</p>
+              <p class="research-date">September 2026–present</p>
+            </div>
           </div>
-          <p class="kicker">Quantum chemistry independent study — Advisor: <a href="https://www.cmu.edu/chemistry/people/faculty/yaron.html" target="_blank" rel="noopener noreferrer">Prof. David Yaron</a>, CMU Chemistry</p>
-          <p>I am extending DFTBML, a machine-learned density-functional tight-binding model for chemical Hamiltonians, to a split-valence (double-zeta) basis. The goal is to improve accuracy and transferability while preserving the model's physical structure.</p>
+          <details class="research-details">
+            <summary>Read more: model development &amp; validation</summary>
+            <div class="research-detail-body"><p>I am extending DFTBML, a machine-learned density-functional tight-binding model for chemical Hamiltonians, to a split-valence (double-zeta) basis. The goal is to improve accuracy and transferability while preserving the model's physical structure.</p>
           <ul class="detail">
             <li>Designed a four-shell basis in PyTorch, expanding the learned parameters from <strong>75 to 266</strong> under symmetry constraints.</li>
             <li>Built a randomized-perturbation test suite to detect improperly tied parameters, and validated it with injected faults.</li>
@@ -1116,17 +1193,37 @@
           </ul>
           <div class="project-links">
             <a class="pub-link" href="https://doi.org/10.1021/acs.jctc.3c00491" target="_blank" rel="noopener noreferrer">DFTBML background: Hu, He, and Yaron, JCTC (2023) ↗</a>
-          </div>
+          </div></div>
+          </details>
         </article>
 
-        <article class="entry" id="security-research" data-reveal>
-          <div class="entry-head">
-            <h3>A hybrid architecture for post-quantum EAP-TLS <span class="status">In progress</span></h3>
-            <span class="meta">August 2026–April 2027</span>
+        <article class="entry research-card" id="security-research" data-reveal>
+          <div class="research-overview">
+            <figure class="research-visual"><svg class="diagram-svg" viewBox="0 0 400 270" role="img" aria-labelledby="security-visual-title security-visual-desc">
+<title id="security-visual-title">Proposed hybrid post-quantum authentication architecture</title>
+<desc id="security-visual-desc">A wireless client connects through an edge QUIC proxy toward authentication services. The proposed wired backbone is secured with QKD. Evaluation in NS-3 is in progress.</desc>
+<text class="di-overline" x="12" y="20">PROPOSED ARCHITECTURE</text>
+<path class="di-connector" d="M117 98h27m112 0h27"/><path class="di-arrow" d="m137 94 7 4-7 4m139-8 7 4-7 4"/>
+<rect class="di-surface" x="12" y="65" width="105" height="66" rx="10"/><text class="di-title" x="64" y="94" text-anchor="middle">Wireless</text><text class="di-title" x="64" y="114" text-anchor="middle">client</text>
+<rect class="di-surface di-accent-border" x="144" y="65" width="112" height="66" rx="10"/><text class="di-title" x="200" y="94" text-anchor="middle">Edge proxy</text><text class="di-label" x="200" y="114" text-anchor="middle">QUIC termination</text>
+<rect class="di-surface" x="283" y="65" width="105" height="66" rx="10"/><text class="di-title" x="335" y="94" text-anchor="middle">Authentication</text><text class="di-label" x="335" y="114" text-anchor="middle">RADIUS</text>
+<path class="di-accent-line" d="M200 150v15h135v-15"/>
+<text class="di-emphasis" x="267" y="190" text-anchor="middle">QKD-secured backbone</text>
+<rect class="di-surface" x="97" y="220" width="206" height="34" rx="17"/><text class="di-label" x="200" y="242" text-anchor="middle">NS-3 · evaluation in progress</text>
+</svg><figcaption>Testing how large post-quantum credentials affect authentication.</figcaption></figure>
+            <div class="research-copy">
+              <div class="research-meta"><span>03 / Master’s thesis</span><span class="status">In progress</span></div>
+              <h3>Post-quantum network authentication</h3>
+              <p class="kicker">Master's Thesis, Information Networking Institute, CMU — Advisors: Prof. Pedro Bustamante &amp; Prof. Michael Mattarock · Reader: Prof. Patrick Tague</p>
+              <p class="research-summary">I am exploring a hybrid architecture for large post-quantum authentication certificates: an edge QUIC proxy and a QKD-secured wired backbone. The work is being evaluated in NS-3.</p>
+              <div class="research-result"><strong>NS-3</strong><span>Architecture evaluation in progress</span></div>
+              <p class="research-scope">Thesis defense and final report targeted for Spring 2027.</p>
+              <p class="research-date">August 2026–April 2027</p>
+            </div>
           </div>
-          <p class="kicker">Master's Thesis, Information Networking Institute, CMU — Advisors: Prof. Pedro Bustamante &amp; Prof. Michael Mattarock · Reader: Prof. Patrick Tague</p>
-
-          <p>Post-quantum cryptographic certificates are large enough to break assumptions that classical network protocols quietly depend on. This thesis looks at one specific failure mode: oversized ML-DSA (post-quantum) certificates used in EAP-TLS authentication can trigger silent Path MTU Discovery blackholes — connections that fail without any clear error, because a packet is dropped somewhere and nothing reports it.</p>
+          <details class="research-details">
+            <summary>Read more: architecture &amp; evaluation plan</summary>
+            <div class="research-detail-body"><p>Post-quantum cryptographic certificates are large enough to break assumptions that classical network protocols quietly depend on. This thesis looks at one specific failure mode: oversized ML-DSA (post-quantum) certificates used in EAP-TLS authentication can trigger silent Path MTU Discovery blackholes — connections that fail without any clear error, because a packet is dropped somewhere and nothing reports it.</p>
 
           <p>The proposed fix combines an edge QUIC-terminating proxy at the Wireless LAN Controller with a Quantum Key Distribution–secured wired backbone, inside a hybrid WPA-Enterprise 802.1X architecture. The thesis is organized around four testable hypotheses, simulated in NS-3:</p>
 
@@ -1137,7 +1234,8 @@
             <li>Sustained QKD key-delivery capacity under high-density authentication bursts.</li>
           </ul>
 
-          <p class="note">Thesis defense and final report targeted for Spring 2027. Simulation code and datasets will be released via a CMU-hosted GitHub repository and the CMU KiltHub data repository.</p>
+          <p class="note">Thesis defense and final report targeted for Spring 2027. Simulation code and datasets will be released via a CMU-hosted GitHub repository and the CMU KiltHub data repository.</p></div>
+          </details>
         </article>
       </section>
 
@@ -1147,33 +1245,43 @@
         <h3 class="subheading">Manuscript in author review</h3>
         <article class="publication" data-reveal>
           <p class="citation"><strong>Rajpal, T. S., &amp; Mattarock, M. (2026).</strong> <em>What can a quantum network promise about the entangled pairs it delivers?</em> Manuscript complete; author review before submission.</p>
-          <p>Develops conditional per-user guarantees for entanglement delivery, an anytime certificate for kept-pair average fidelity, and a test-driven check of model optimism. Evidence includes network simulations, seven experimental-data re-analyses, and two local runs on one IBM processor. The IonQ re-analysis compared a certificate predicted before reading the data (0.817) with the observed median (0.818).</p>
+          <p class="publication-summary">Conditional guarantees and statistical evidence for delivered entanglement, supported by simulations and experimental-data re-analyses.</p>
+          <details class="publication-details"><summary>Read study summary</summary><p>Develops conditional per-user guarantees for entanglement delivery, an anytime certificate for kept-pair average fidelity, and a test-driven check of model optimism. Evidence includes network simulations, seven experimental-data re-analyses, and two local runs on one IBM processor. The IonQ re-analysis compared a certificate predicted before reading the data (0.817) with the observed median (0.818).</p></details>
+
           <a class="pub-link" href="https://github.com/tanishsinghrajpal1029/safe-entanglement-delivery" target="_blank" rel="noopener noreferrer">Code, results, and audit trail ↗</a>
         </article>
 
         <h3 class="subheading">Journal articles</h3>
         <article class="publication" data-reveal>
           <p class="citation"><strong>Rajpal, T. S., &amp; Naithani, A. (2026).</strong> NeuroCrypt: A Neuro-Symbolic AI Ecosystem for Advanced Cryptographic Data Security and Transmission. <span class="venue">IEEE Transactions on Artificial Intelligence, 7</span>(1), 512–521.</p>
-          <p>NeuroCrypt pairs a rule-based cryptographic engine with a deep neural network to dynamically generate symmetric keys, aiming to make encryption harder to model and attack than a fixed algorithm. Evaluated against classical ciphers (AES, DES) and neural-network-based attacks, it showed a 25% increase in measured security resilience and a 15% reduction in key-management overhead.</p>
+          <p class="publication-summary">A neuro-symbolic approach to symmetric-key generation, evaluated against classical ciphers and neural-network-based attacks.</p>
+          <details class="publication-details"><summary>Read study summary</summary><p>NeuroCrypt pairs a rule-based cryptographic engine with a deep neural network to dynamically generate symmetric keys, aiming to make encryption harder to model and attack than a fixed algorithm. Evaluated against classical ciphers (AES, DES) and neural-network-based attacks, it showed a 25% increase in measured security resilience and a 15% reduction in key-management overhead.</p></details>
+
           <a class="pub-link" href="https://doi.org/10.1109/TAI.2025.3577605" target="_blank" rel="noopener noreferrer">doi.org/10.1109/TAI.2025.3577605</a>
         </article>
 
         <h3 class="subheading">Conference papers</h3>
         <article class="publication" data-reveal>
           <p class="citation"><strong>Naithani, A., &amp; Rajpal, T. S. (2025).</strong> Blockchain-Based Digital Health Passport: A Decentralized Framework for Secure and Interoperable Health Data Management. <span class="venue">2025 IEEE Zooming Innovation in Consumer Technologies Conference (ZINC)</span>.</p>
-          <p>A decentralized health-record system built to guarantee data immutability and patient ownership through a unique identifier and OTP-based consent mechanism, designed for secure interoperability across providers at national scale. It uses a hybrid on/off-chain storage model with public-key encryption and role-based access control, aiming to keep large medical records both secure and compliant without sacrificing scalability.</p>
+          <p class="publication-summary">A decentralized health-record framework combining patient-controlled consent, encryption, and off-chain storage.</p>
+          <details class="publication-details"><summary>Read study summary</summary><p>A decentralized health-record system built to guarantee data immutability and patient ownership through a unique identifier and OTP-based consent mechanism, designed for secure interoperability across providers at national scale. It uses a hybrid on/off-chain storage model with public-key encryption and role-based access control, aiming to keep large medical records both secure and compliant without sacrificing scalability.</p></details>
+
           <a class="pub-link" href="https://doi.org/10.1109/ZINC65316.2025.11100281" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ZINC65316.2025.11100281</a>
         </article>
 
         <article class="publication" data-reveal>
           <p class="citation"><strong>Naithani, A., Rajpal, T. S., &amp; Mistry, V. (2024).</strong> TAV-Cart: Transaction Assistance and Validation Cart System for Effortless Shopping and Checkout. <span class="venue">2024 International Conference on Advances in Computing, Communication and Materials (ICACCM)</span>.</p>
-          <p>A system design for a smart shopping cart intended as a lower-cost alternative to RFID-based carts: dual barcode scanners and a strain-gauge weight-validation system cross-check that what's scanned matches what's physically in the cart, an LED strip gives real-time feedback, and checkout happens directly through UPI — India's national instant-payment system — removing the need for a cashier line. This is a feasibility and system-architecture study, not a deployed retail pilot.</p>
+          <p class="publication-summary">A smart-cart architecture that pairs barcode scanning with weight validation and direct digital checkout.</p>
+          <details class="publication-details"><summary>Read study summary</summary><p>A system design for a smart shopping cart intended as a lower-cost alternative to RFID-based carts: dual barcode scanners and a strain-gauge weight-validation system cross-check that what's scanned matches what's physically in the cart, an LED strip gives real-time feedback, and checkout happens directly through UPI — India's national instant-payment system — removing the need for a cashier line. This is a feasibility and system-architecture study, not a deployed retail pilot.</p></details>
+
           <a class="pub-link" href="https://doi.org/10.1109/ICACCM61117.2024.11059075" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ICACCM61117.2024.11059075</a>
         </article>
 
         <article class="publication" data-reveal>
           <p class="citation"><strong>Naithani, A., Jain, V., Rajpal, T. S., &amp; Mistry, V. (2024).</strong> AI Based Goalkeeper for Penalty Shot Prediction Using RNN and Pattern Matching Algorithm. <span class="venue">2024 12th International Symposium on Digital Forensics and Security (ISDFS)</span>.</p>
-          <p>Built a predictive model — a recurrent neural network combined with a pattern-matching module — that learns a penalty taker's shot-direction tendencies from their history and predicts where they'll shoot next. Tested against four shooting strategies (a fixed repeating pattern, always the same side, fully random, and adaptively shooting away from the keeper's last dive) at 30 shots each: fully random shooting produced the lowest save rate of any strategy, directly showing that unpredictability is a penalty taker's strongest defense against a model trying to read them. Validated against Cristiano Ronaldo's recorded penalty history from the 2014–15 through 2017–18 seasons: the AI model saved 17 of 53 penalties in situations where the real goalkeepers on record saved 13 — a modest but real improvement, and an initial prototype rather than a production system.</p>
+          <p class="publication-summary">A recurrent neural network and pattern-matching prototype for predicting penalty-shot direction.</p>
+          <details class="publication-details"><summary>Read study summary</summary><p>Built a predictive model — a recurrent neural network combined with a pattern-matching module — that learns a penalty taker's shot-direction tendencies from their history and predicts where they'll shoot next. Tested against four shooting strategies (a fixed repeating pattern, always the same side, fully random, and adaptively shooting away from the keeper's last dive) at 30 shots each: fully random shooting produced the lowest save rate of any strategy, directly showing that unpredictability is a penalty taker's strongest defense against a model trying to read them. Validated against Cristiano Ronaldo's recorded penalty history from the 2014–15 through 2017–18 seasons: the AI model saved 17 of 53 penalties in situations where the real goalkeepers on record saved 13 — a modest but real improvement, and an initial prototype rather than a production system.</p></details>
+
           <a class="pub-link" href="https://doi.org/10.1109/ISDFS60797.2024.10527307" target="_blank" rel="noopener noreferrer">doi.org/10.1109/ISDFS60797.2024.10527307</a>
           <span aria-hidden="true"> · </span>
           <a class="pub-link" href="https://github.com/Akshit-Naithani/AI-Based-Goalkeeper-for-Penalty-Shot-Prediction-Using-RNN-and-Pattern-Matching-Algorithm" target="_blank" rel="noopener noreferrer">Code repository</a>
@@ -1453,5 +1561,5 @@
     });
 
   </script>
-<script src="assets/site-assistant.js?v=2026-11-02-resume" defer></script></body>
+<script src="assets/site-assistant.js?v=2026-11-02-compact" defer></script></body>
 </html>
