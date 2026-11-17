@@ -222,8 +222,8 @@
   }
 
   const direct = {
-    resume: { title: 'Download résumé', summary: 'One-page résumé for recruiters and industry opportunities.', href: asset('Tanish_Rajpal_Resume.pdf') },
-    cv: { title: 'Download academic CV', summary: 'Full research experience, publications, and academic background.', href: asset('Tanish_Rajpal_CV.pdf') },
+    resume: { title: 'Download résumé', summary: 'One-page résumé for recruiters and industry opportunities.', href: asset('Tanish_Rajpal_Resume.pdf?v=83bf459f2359') },
+    cv: { title: 'Download academic CV', summary: 'Full research experience, publications, and academic background.', href: asset('Tanish_Rajpal_CV.pdf?v=e1a96c044c35') },
     contact: { title: 'Reach out to Tanish', summary: 'Contact details and ways to start a conversation.', href: asset('contact.html') },
     posts: { title: 'Browse all posts', summary: 'Search and filter research notes, visits, and talks.', href: asset('Posts/index.html') }
   };
